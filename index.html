@@ -24,24 +24,27 @@
     <div id="holder" class="container text-center">
 
         <!-- div for new buttons -->
-        <div id="new-item">
-            <button>Food</button>
+        <div id="button-style">
+            <div id="new-item">
+                <button>Food</button>
+            </div>
+            <form id="item-form">
+                <label for="search-input">
+                    <input id="add-item" type="submit" value="Send It">
+                </label>
+                <input type="text" id="item-input">
+
+                <!-- button triggers new item to be added -->
+             
+            </form>
+
         </div>
+
         <div id="info" class="row no-gutters">
             <div class="col-sm-9" id="input-box">
-                <row>
-                    <form id="item-form">
-                        <label for="search-input">
-                            <h1 class="text-info">input</h1>
-                        </label>
-                        <input type="text" id="item-input">
-                        <br>
-                        <!-- button triggers new item to be added -->
-                        <input id="add-item" type="submit" value="Send It">
-                    </form>
 
 
-                </row>
+
 
                 <row>
                     <!-- div for nutri data -->
@@ -63,7 +66,7 @@
                 <br>
                 <row>
                     <!-- div for edamam data -->
-                    <div id="dump-item-2 listOfItem">
+                    <div id="dump-item-2">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cumque corporis laborum odio deserunt
                             delectus, iure itaque, autem ea debitis, neque saepe sunt soluta quam beatae? Earum modi similique
                             perferendis!
