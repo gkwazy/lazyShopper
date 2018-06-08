@@ -1,18 +1,122 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lazy Shopper</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+<link rel="icon" href="assets/images/shoppingcart.gif">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style></style>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <title>Lazy People Cart</title>
 </head>
 
+
 <body>
-    The number #1 Lazy Shopper App
-    <h1>This is going to be fun</h1>
+
+
+
+    <div class="container">
+        <h1 id="Jumbo" class="display-4 text-center">Lazy Food Person</h1>
+    </div>
+
+    <div id="holder" class="container text-center">
+
+        <!-- div for new buttons -->
+        <div id="new-item">
+            <button>Food</button>
+        </div>
+        <div id="info"class="row no-gutters">
+            <div class="col-sm-9" id="input-box">
+                <row>
+                    <form id="item-form">
+                        <label for="search-input">
+                            <h1 class="text-info">input</h1>
+                        </label>
+                        <input type="text" id="item-input">
+                        <br>
+                        <!-- button triggers new item to be added -->
+                        <input id="add-item" type="submit" value="Send It">
+                    </form>
+
+
+                </row>
+
+                <row>
+                    <!-- div for nutri data -->
+                    <div id="dump-item">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nobis placeat maxime qui. Delectus
+                            reprehenderit totam rerum facere deserunt dolore sed enim, molestias eligendi asperiores impedit
+                            possimus autem vitae libero?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nobis placeat maxime qui. Delectus
+                            reprehenderit totam rerum facere deserunt dolore sed enim, molestias eligendi asperiores impedit
+                            possimus autem vitae libero?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nobis placeat maxime qui. Delectus
+                            reprehenderit totam rerum facere deserunt dolore sed enim, molestias eligendi asperiores impedit
+                            possimus autem vitae libero?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nobis placeat maxime qui. Delectus
+                            reprehenderit totam rerum facere deserunt dolore sed enim, molestias eligendi asperiores impedit
+                            possimus autem vitae libero?</p>
+                    </div>
+                </row>
+                <br>
+                <row>
+                    <!-- div for edamam data -->
+                    <div id="dump-item-2">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cumque corporis laborum odio deserunt
+                            delectus, iure itaque, autem ea debitis, neque saepe sunt soluta quam beatae? Earum modi similique
+                            perferendis!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cumque corporis laborum odio deserunt
+                            delectus, iure itaque, autem ea debitis, neque saepe sunt soluta quam beatae? Earum modi similique
+                            perferendis!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cumque corporis laborum odio deserunt
+                            delectus, iure itaque, autem ea debitis, neque saepe sunt soluta quam beatae? Earum modi similique
+                            perferendis!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo cumque corporis laborum odio deserunt
+                            delectus, iure itaque, autem ea debitis, neque saepe sunt soluta quam beatae? Earum modi similique
+                            perferendis!</p>
+                    </div>
+
+                </row>
+            </div>
+            <!-- div for walmart api -->
+            <div class="col-sm-3" id="location">
+                <ul>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                    <li>This is location data........</li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="assets/javascript/main.js"></script>
+
 </body>
 
 </html>
