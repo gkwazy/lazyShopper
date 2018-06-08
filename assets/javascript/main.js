@@ -1,10 +1,28 @@
 
+console.log("yo");
+
+// var config = {
+//     apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
+//     authDomain: "lazyshopper-3cd30.firebaseapp.com",
+//     databaseURL: "https://lazyshopper-3cd30.firebaseio.com",
+//     projectId: "lazyshopper-3cd30",
+//     storageBucket: "",
+//     messagingSenderId: "162604132617"
+// };
+// firebase.initializeApp(config);
+// var database = firebase.database();
+
+
+
+
+
 var appId = "d6f00b57";
 var appKey = "971c028b76c7d2aaa76db5c08e3acfbf";
 var wantedItem = "squash";
 var quaryURL = `https://api.edamam.com/search?q=${wantedItem}&app_id=${appId}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`
 var ingd;
 $.ajax({
+
     url: quaryURL,
     method: "GET"
 }).then(function (response) {
@@ -28,4 +46,45 @@ $.ajax({
         $("#listOfItem").append("</tr>")
     }
 
+});
+
+var ingredients = ["Tomato", "Olive Oil", "Ground Beef", "Garlic"];
+
+// Function for displaying ingredient buttons
+function renderButtons() {
+
+    // Deleting the ingredient buttons prior to adding new ingredient buttons
+    // (this is necessary otherwise we will have repeat buttons)
+    $("#new-item").empty();
+
+    // Looping through the array of giphys
+    for (var i = 0; i < ingredients.length; i++) {
+
+        // Then dynamicaly generating buttons for each ingredient in the array.
+        var a = $("<button>");
+        // Adding a class
+        a.addClass("ingredients");
+        // Adding a data-attribute with a value of the ingredient at index i
+        a.attr("data-name", ingredients[i]);
+        // Providing the button's text with a value of the ingredient at index i
+        a.text(ingredients[i]);
+        // Adding the button to the HTML
+        $("#new-item").append(a);
+        console.log("ingredients")
+    }
+}
+
+// This function handles events where one button is clicked
+$("#add-item").on("click", function (event) {
+    // event.preventDefault() prevents the form from trying to submit itself.
+    // We're using a form so that the user can hit enter instead of clicking the button if they want
+    event.preventDefault();
+
+    // This line will grab the text from the input box
+    var ingredient = $("#item-input").val().trim();
+    // The giphy from the textbox is then added to our array
+    ingredients.push(ingredient);
+
+    // calling renderButtons which handles the processing of our giphy array
+    renderButtons();
 });
