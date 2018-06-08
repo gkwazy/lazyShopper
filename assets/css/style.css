@@ -1,0 +1,46 @@
+#Jumbo {
+    padding:10px;
+    border-style: double;
+}
+
+#holder {
+    margin-top: 10px;
+}
+#info {
+   margin-top: 10px;
+}
+
+#new-item {
+    border-style: double;
+    padding: 10px;
+}
+
+#input-box {}
+
+#item-form {}
+
+#item-input {}
+
+#add-item {
+    margin-bottom: 10px;
+}
+
+#item-input {}
+
+#dump-item {
+    padding: 10px;
+    border-style: double;
+}
+
+#dump-item-2 {
+    padding: 10px;
+    border-style: double;
+}
+#location {
+    padding: 10px;
+     border-style: double;
+}
+
+body {
+    border-style: double;
+}
