@@ -11,12 +11,17 @@ $("#submit").on("click", function(event){
     
     $.ajax({
       url: queryURL,
-      headers: {
-        'X-Originating-IP': '65.130.232.218',
-        },
-      method: "GET"
+      method: "GET",
+      dataType: "jsonp",
     }).done(function(storeLocator){
       console.log(storeLocator);
+      var closestStores = storeLocator.slice(0, 3);
+      console.log(closestStores);
+      for (var i = 0; i < closestStores.length; i++) {
+        //we need to gen a bunch of HTML elemts to put our store data inside
+        var div = $('<div></div>')
+        
+      }
     })
 
 
