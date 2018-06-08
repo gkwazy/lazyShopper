@@ -32,6 +32,7 @@ $.ajax({
 
 $("#submit").on("click", function(event){
     event.preventDefault();
+    $('#closestStores').empty()
     
     var buttonValue = $('#storeLocator').val()
     console.log(buttonValue);
@@ -48,11 +49,29 @@ $("#submit").on("click", function(event){
       console.log(closestStores);
       for (var i = 0; i < closestStores.length; i++) {
         //we need to gen a bunch of HTML elemts to put our store data inside
-        var div = $('<div></div>')
+        // var div = $('<div></div>')
+        
+        var name = storeLocator[i].name
+        var phoneNumber = storeLocator[i].phoneNumber
+        var streetAddress = storeLocator[i].streetAddress
+        var city = storeLocator[i].city 
+        var stateProvCode = storeLocator[i].stateProvCode
+        var zip = storeLocator[i].zip
+        
+        // div.attr("id", "closeStoreList")
+        // div.attr("data-store", "<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
+
+        $('#closestStores').append("<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
         
       }
+      console.log(storeLocator[0].name)
+      console.log(storeLocator[0].phoneNumber)
+      console.log(storeLocator[0].streetAddress)
+      console.log(storeLocator[0].city)
+      console.log(storeLocator[0].stateProvCode)
+      console.log(storeLocator[0].zip)
+
+
     })
-
-
 
 })
