@@ -50,16 +50,8 @@ sans-serif;
 }
 #clear-button:hover {
     background-color: #9b988f60;
-    margin: 20px;
+  
 }
-#clear-button {
-    width: 60%;
-    display: inline;
-    overflow: auto;
-    white-space: nowrap;
-    margin: 0px auto;
-}
-
 
 
 #add-item {
