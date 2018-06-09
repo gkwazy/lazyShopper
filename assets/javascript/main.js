@@ -20,18 +20,12 @@ function ajaxCall() {
     $(".listOfNutrtion").empty();
 
 
-<<<<<<< HEAD
     var foodAppId = "ad90d902";
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
     //item that the user is searching for, var gathered 
     //for, the search bar
-=======
-var quaryURL = `https://api.edamam.com/search?q=${wantedItem}&app_id=${appId}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`;
-//var to help with all the information in the JOSN
-var ingd;
-//ajax call to the recipe api for the users information
-$.ajax({
->>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
+
+
 
     //api key for the recipe api
     var appId = "d6f00b57";
@@ -148,13 +142,8 @@ $("#submit").on("click", function (event) {
 })
 A = [];
 
-<<<<<<< HEAD
 var ingredients = [];
 renderButtons();
-=======
-var ingredients = [""];
-
->>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
 // Function for displaying ingredient buttons
 function renderButtons() {
 
@@ -190,7 +179,6 @@ $("#add-item").on("click", function (event) {
 
     // This line will grab the text from the input box
     var ingredient = $("#item-input").val().trim();
-<<<<<<< HEAD
     // The giphy from the textbox is then added to our array
     console.log(ingredients.indexOf(ingredient));
     console.log()
@@ -213,18 +201,3 @@ $("#clear-button").on("click", function (event) {
     $("#new-item").empty();
     ingredients = [];
 });
-=======
-    // The ingredient from the textbox is then added to our array
-    ingredients.push(ingredient);
-
-    // calling renderButtons which handles the processing of our ingredient array
-    renderButtons();
-
-});
-
-//Clear button
-$("#clear-button").on("click", function (event) {
-    $("#new-item").empty();
-
-})
->>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
