@@ -19,50 +19,53 @@
 
 
 <body>
-    < <div class="container">
+    <div class="container">
         <h1 id="Jumbo" class="display-4 text-center">Lazy Food Person</h1>
+    </div>
+    
+    <div id="holder" class="container text-center">
+    
+        <!-- div for new buttons -->
+        <div id="button-style">
+            <div id="new-item">
+    
+            </div>
+            <form id="item-form">
+                <label for="search-input">
+                    <input id="add-item" type="submit" value="Send It">
+                </label>
+                <input type="text" id="item-input">
+    
+                <!-- button triggers new item to be added -->
+    
+            </form>
+            <button id="clear-button">clear</button>
+    
         </div>
-
-        <div id="holder" class="container text-center">
-
-            <!-- div for new buttons -->
-            <div id="button-style">
-                <div id="new-item">
-                   
-                </div>
-                <form id="item-form">
-                    <label for="search-input">
-                        <input id="add-item" type="submit" value="Send It">
-
-                    </label>
-                    <input type="text" id="item-input">
-
-                    <!-- button triggers new item to be added -->
-
-                </form>
-                <button id="clear-button">clear</button>
-
-                    </form>
-
-
-                </row>
-
+    
+        <div id="info" class="row no-gutters">
+            <div class="col-sm-9" id="input-box">
+    
+    
+    
                 <row>
                     <!-- div for nutri data -->
                     <div id="dump-item" class="listOfNutrtion">
-
+    
                     </div>
                 </row>
                 <br>
                 <row>
                     <!-- div for edamam data -->
                     <div id="dump-item-2" class="listOfRecipes">
-
+    
                     </div>
-
-
+    
+                </row>
             </div>
-
+            <!-- div for walmart api -->
+            <div class="col-sm-3" id="location">
+    
                 <div id="storesList">
                     <form>
                         Enter Zip Code
@@ -74,26 +77,15 @@
                 </div>
                 <div id="closestStores">
                     <ul>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
-                        <li>This is location data........</li>
+    
                     </ul>
                 </div>
-
-
-
+    
+    
+    
             </div>
+    
+        </div>
 
 
 
