@@ -1,4 +1,3 @@
-
 console.log("yo");
 
 // var config = {
@@ -88,6 +87,7 @@ $.ajax({
     }
 });
 
+
 $("#submit").on("click", function (event) {
     event.preventDefault();
     $('#closestStores').empty()
@@ -133,6 +133,7 @@ $("#submit").on("click", function (event) {
     })
 
 })
+A = [];
 
 var ingredients = ["Tomato", "Olive Oil", "Ground Beef", "Garlic"];
 
