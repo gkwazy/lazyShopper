@@ -74,20 +74,20 @@ $.ajax({
     var foodListIngd = [];
     //appending the wanted information to the html for the user to view
 
-    wantedInformation = ["CA", "FAT", "K"];
-    label = "retruned.totalDaily." + nutritionInfor + ".label";
-    quantity = "retruned.totalDaily." + nutritionInfor + ".quantity";
-    unit = "retruned.totalDaily." + nutritionInfor + ".unit";
-
+    wantedInformation = ["FAT", "CHOCDF", "FIBTG"];
 
     $(".listOfRecipes").append("<p> calories: " + returned.calories + "</p>");
     for (i = 0; i < wantedInformation.length; i++) {
         var nutritionInfor = wantedInformation[i];
-        $(".listOfRecipes").append("<p> " + label + ":" + quantity + unit + "</p>");
+        var label = returned.totalNutrients[nutritionInfor].label;
+        var quantity = returned.totalNutrients[nutritionInfor].quantity;
+        var unit = returned.totalNutrients[nutritionInfor].unit;
+        var quantityPer = returned.totalDaily[nutritionInfor].quantity;
+        var unitPer = returned.totalDaily[nutritionInfor].unit;
+        $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</p>");
     }
 });
 
->>>>>>> db822b6c06dd8e76decedef0efa6ba7863294aac
 $("#submit").on("click", function (event) {
     event.preventDefault();
     $('#closestStores').empty()
