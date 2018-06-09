@@ -1,15 +1,15 @@
 console.log("yo");
 
-// var config = {
-//     apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
-//     authDomain: "lazyshopper-3cd30.firebaseapp.com",
-//     databaseURL: "https://lazyshopper-3cd30.firebaseio.com",
-//     projectId: "lazyshopper-3cd30",
-//     storageBucket: "",
-//     messagingSenderId: "162604132617"
-// };
-// firebase.initializeApp(config);
-// var database = firebase.database();
+var config = {
+    apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
+    authDomain: "lazyshopper-3cd30.firebaseapp.com",
+    databaseURL: "https://lazyshopper-3cd30.firebaseio.com",
+    projectId: "lazyshopper-3cd30",
+    storageBucket: "",
+    messagingSenderId: "162604132617"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
 
 var wantedItem;
 
@@ -20,10 +20,18 @@ function ajaxCall() {
     $(".listOfNutrtion").empty();
 
 
+<<<<<<< HEAD
     var foodAppId = "ad90d902";
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
     //item that the user is searching for, var gathered 
     //for, the search bar
+=======
+var quaryURL = `https://api.edamam.com/search?q=${wantedItem}&app_id=${appId}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`;
+//var to help with all the information in the JOSN
+var ingd;
+//ajax call to the recipe api for the users information
+$.ajax({
+>>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
 
     //api key for the recipe api
     var appId = "d6f00b57";
@@ -140,8 +148,13 @@ $("#submit").on("click", function (event) {
 })
 A = [];
 
+<<<<<<< HEAD
 var ingredients = [];
 renderButtons();
+=======
+var ingredients = [""];
+
+>>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
 // Function for displaying ingredient buttons
 function renderButtons() {
 
@@ -149,7 +162,7 @@ function renderButtons() {
     // (this is necessary otherwise we will have repeat buttons)
     $("#new-item").empty();
 
-    // Looping through the array of giphys
+    // Looping through the array of ingredients
     for (var i = 0; i < ingredients.length; i++) {
 
         // Then dynamicaly generating buttons for each ingredient in the array.
@@ -164,7 +177,10 @@ function renderButtons() {
         $("#new-item").append(a);
         console.log("ingredients")
     }
+
+
 }
+
 
 // This function handles events where one button is clicked
 $("#add-item").on("click", function (event) {
@@ -174,6 +190,7 @@ $("#add-item").on("click", function (event) {
 
     // This line will grab the text from the input box
     var ingredient = $("#item-input").val().trim();
+<<<<<<< HEAD
     // The giphy from the textbox is then added to our array
     console.log(ingredients.indexOf(ingredient));
     console.log()
@@ -196,3 +213,18 @@ $("#clear-button").on("click", function (event) {
     $("#new-item").empty();
     ingredients = [];
 });
+=======
+    // The ingredient from the textbox is then added to our array
+    ingredients.push(ingredient);
+
+    // calling renderButtons which handles the processing of our ingredient array
+    renderButtons();
+
+});
+
+//Clear button
+$("#clear-button").on("click", function (event) {
+    $("#new-item").empty();
+
+})
+>>>>>>> bfff0fa2e2afdc129eaf50de118347da1fdccdfd
