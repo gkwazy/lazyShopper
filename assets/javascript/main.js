@@ -13,7 +13,7 @@ var database = firebase.database();
 
 var wantedItem;
 
-//ajaxCall();
+ajaxCall();
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
@@ -47,18 +47,18 @@ function ajaxCall() {
         var listIngd = [];
         //appending the wanted information to the HTML for the users view. 
         for (i = 0; i < ingd.length; i++) {
-            $(".listOfNutrtion").append("<tr> ")
+            $(".listOfNutrtion").append("<br> ")
 
             label = ingd[i].recipe.label;
 
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
-                $(".listOfNutrtion").append("<td scope=col >" + ingd[i].recipe.ingredientLines[j] + "</td>")
+                $(".listOfNutrtion").append("<br>" + ingd[i].recipe.ingredientLines[j] + "</br>")
 
 
 
             }
-            $(".listOfNutrtion").append("</tr>")
+            $(".listOfNutrtion").append("</br>")
         }
 
     });
@@ -90,7 +90,7 @@ function ajaxCall() {
             var unit = returned.totalNutrients[nutritionInfor].unit;
             var quantityPer = returned.totalDaily[nutritionInfor].quantity;
             var unitPer = returned.totalDaily[nutritionInfor].unit;
-            $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</p>");
+            $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</br>");
         }
     });
 }
@@ -193,7 +193,7 @@ $("#add-item").on("click", function (event) {
 $("#new-item").on("click", ".ingredients", function () {
     wantedItem = $(this).attr("data-name");
     console.log(wantedItem);
-    //ajaxCall();
+    ajaxCall();
 
 });
 

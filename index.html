@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 
 <head>
@@ -19,9 +18,13 @@
 
 
 <body>
-    <div class="container">
-        <h1 id="Jumbo" class="display-4 text-center">Lazy Food Person</h1>
-    </div>
+
+
+
+    <!-- Image and text -->
+    <nav id="Jumbo" class="navbar">
+        <h1>Lazy Food Person</h1>
+    </nav>
 
     <div id="holder" class="container text-center">
 
@@ -45,16 +48,10 @@
 
         <div id="info" class="row no-gutters">
             <div class="col-sm-9" id="input-box">
+                <div id="title">
+                    <h1>Nutrtion</h1>
+                </div>
 
-
-
-                <row>
-                    <!-- div for nutri data -->
-                    <div id="dump-item" class="listOfNutrtion">
-
-                    </div>
-                </row>
-                <br>
                 <row>
                     <!-- div for edamam data -->
                     <div id="dump-item-2" class="listOfRecipes">
@@ -62,11 +59,32 @@
                     </div>
 
                 </row>
+                <div id="title">
+                    <h1>Recipes</h1>
+                </div>
+
+                <row>
+                    <!-- div for nutri data -->
+                    <div id="dump-item" class="listOfNutrtion">
+
+                    </div>
+                </row>
+
+
+
+                <br>
+
+
             </div>
             <!-- div for walmart api -->
             <div class="col-sm-3" id="location">
-
+                <div id="title">
+                    <h1>Recipes</h1>
+                </div>
                 <div id="storesList">
+                    <div>
+
+                    </div>
                     <form>
                         Enter Zip Code
                         <br>
@@ -97,8 +115,11 @@
             crossorigin="anonymous"></script>
         <script src="assets/javascript/main.js"></script>
 
-</body>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="main.js"></script> -->
+
+    </div>
+</body>
 
 </html>
