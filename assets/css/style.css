@@ -40,9 +40,7 @@ sans-serif;
     border-radius: 20px;
 }
 #clear-button {
-    position: absolute;
-    left: 22%;
-    bottom: 76%;
+
     border-radius: 10px;
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
     -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -52,7 +50,16 @@ sans-serif;
 }
 #clear-button:hover {
     background-color: #9b988f60;
+    margin: 20px;
 }
+#clear-button {
+    width: 60%;
+    display: inline;
+    overflow: auto;
+    white-space: nowrap;
+    margin: 0px auto;
+}
+
 
 
 #add-item {

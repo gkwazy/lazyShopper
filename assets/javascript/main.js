@@ -92,6 +92,7 @@ $("#submit").on("click", function (event) {
     })
 
 })
+A = [];
 
 var ingredients = ["Tomato", "Olive Oil", "Ground Beef", "Garlic"];
 
