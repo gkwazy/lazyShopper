@@ -1,25 +1,35 @@
 body {
     background: url("../../assets/images/cut.jpeg");
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat',
+    sans-serif;
 }
 
 #Jumbo {
     color: whitesmoke;
+    
     background-color: rgba(20, 20, 20, 0.562);
-    font-family: 'Work Sans', sans-serif;
-    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
-    border-top: 1px solid black;
-    border-bottom: 3px solid black;
+   
+   font-family: 'Work Sans',
+   sans-serif;
+    text-shadow: 3px 0 rgb(1, 8, 8),
+    0 .5px rgb(0, 3, 3),
+    .5px 0 rgb(1, 5, 5),
+    0 -1px rgb(3, 21, 26);
+   border-top: 1px solid black;
+   border-bottom: 3px solid black;
+   
 }
 
 #holder {
     margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
+font-family: 'Montserrat',
+sans-serif;
 }
 
 #info {
     margin-top: 10px;
-    font-family: 'Montserrat', sans-serif;
+     font-family: 'Montserrat',
+     sans-serif;
 }
 
 #button-style {
@@ -28,7 +38,10 @@ body {
     border-radius: 65px 20px 65px 10px;
     background-color: rgba(20, 20, 20, 0.562);
     color: whitesmoke;
-    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    text-shadow: 3px 0 rgb(1, 8, 8),
+    0 .5px rgb(0, 3, 3),
+    .5px 0 rgb(1, 5, 5),
+    0 -1px rgb(3, 21, 26);
 }
 
 #input-box {}
@@ -38,8 +51,8 @@ body {
 #item-input {
     border-radius: 20px;
 }
-
 #clear-button {
+
     border-radius: 10px;
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
     -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -47,6 +60,8 @@ body {
     background-color: rgba(243, 236, 145, 0.329);
     color: whitesmoke;
 }
+
+
 
 #clear-button {
     margin-bottom: 10px;
@@ -80,7 +95,10 @@ body {
     top: 1px;
 }
 
-#submit {
+
+
+
+button {
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
     -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
     box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -96,22 +114,28 @@ body {
     padding: 9px 16px;
     text-decoration: none;
     text-shadow: 2px 1px 1px #2f6627;
-    margin-top: 10px;
+    margin-top:10px;
 }
 
-#submit:hover {
+button:hover {
     background-color: #91908d98;
 }
 
-#submit:active {
+button:active {
     position: relative;
     top: 1px;
 }
 
+
+
 #add-item {
     margin-bottom: 10px;
     border-radius: 20px;
+    
 }
+
+
+
 
 #add-item {
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -132,7 +156,7 @@ body {
 }
 
 #add-item:hover {
-    background-color: #91908d98;
+   background-color: #91908d98;
 }
 
 #add-item:active {
@@ -140,47 +164,57 @@ body {
     top: 1px;
 }
 
+
 #dump-item {
-    text-align: left;
+ text-align: left;
     font-weight: 600;
     padding: 20px;
-    border-style: double;
+    border-style: solid;
     border-radius: 65px 20px 65px 10px;
-    background-color: rgba(20, 20, 20, 0.562);
-    color: whitesmoke;
-    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+background-color: rgba(20, 20, 20, 0.562);
+color: whitesmoke;
+text-shadow: 1px 0 rgb(1, 8, 8),
+0 .5px rgb(0, 3, 3),
+.5px 0 rgb(1, 5, 5),
+0 -1px rgb(3, 21, 26);
+
 }
 
+
 #dump-item-2 {
-    text-align: left;
+        text-align: left;
     font-weight: 600;
     padding: 20px;
-    border-style: double;
+    border-style: solid;
     border-radius: 65px 20px 65px 10px;
-    background-color: rgba(236, 214, 186, 0.61);
+ background-color: rgba(236, 214, 186, 0.61);
 }
 
 #location {
+   
     padding: 20px;
     border-style: double;
-    background-color: rgba(236, 214, 186, 0.61);
+  background-color: rgba(0, 255, 255, 0.411);
     border-radius: 65px 20px 65px 10px;
 }
-
-#title {
-    background-color: rgba(0, 255, 255, 0.411);
+#title{
+background-color: rgba(0, 255, 255, 0.411);
     border-radius: 7px;
+     border-style: solid;
 }
 
 body {
     border-style: double;
 }
-
 #storesList {
-    padding: 20px;
-    border-style: double;
-    border-radius: 65px 20px 65px 10px;
-    background-color: rgba(0, 0, 0, 0.562);
-    color: whitesmoke;
-    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+        padding: 20px;
+        border-style: double;
+      
+        border-radius: 65px 20px 65px 10px;
+      background-color: rgba(0, 0, 0, 0.678);
+        color: whitesmoke;
+        text-shadow: 3px 0 rgb(1, 8, 8),
+        0 .5px rgb(0, 3, 3),
+        .5px 0 rgb(1, 5, 5),
+        0 -1px rgb(3, 21, 26);
 }

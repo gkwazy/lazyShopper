@@ -44,12 +44,12 @@
             </form>
             <button id="clear-button">clear</button>
 
-        </div> 
+        </div>
 
         <div id="info" class="row no-gutters">
             <div class="col-sm-9" id="input-box">
                 <div id="title">
-                    <h1>Nutrtion</h1>
+                    <h1>Nutrition</h1>
                 </div>
 
                 <row>
@@ -60,7 +60,7 @@
 
                 </row>
                 <div id="title">
-                    <h1>Recipes yes</h1>
+                    <h1>Recipes</h1>
                 </div>
 
                 <row>
@@ -77,49 +77,55 @@
 
             </div>
             <!-- div for walmart api -->
-            <div class="col-sm-3" id="location">
-                <div id="title">
+            <div class="col-sm-3">
+
+                <!-- <div id="title">
                     <h1>Recipes</h1>
-                </div>
-                <div id="storesList">
-                    <div>
+                </div> -->
 
+                <div class="col-sm-12" id="location">
+
+
+                    <div id="storesList">
+                        <div>
+                            <h3>Walmart Store Locator</h3>
+                        </div>
+                        <form>
+                            Enter Zip Code
+                            <br>
+                            <input id="storeLocator" type="text">
+                            <br>
+                            <input id="submit" type="submit" value="Submit">
+                        </form>
                     </div>
-                    <form>
-                        Enter Zip Code
-                        <br>
-                        <input id="storeLocator" type="text">
-                        <br>
-                        <input id="submit" type="submit" value="Submit">
-                    </form>
-                </div>
-                <div id="closestStores">
-                    <ul>
+                    <div id="closestStores">
+                        <ul>
 
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
 
+
+
+                </div>
 
 
             </div>
 
-        </div>
 
 
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+            <script src="assets/javascript/main.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-        <script src="assets/javascript/main.js"></script>
 
-
-        <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+            <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="main.js"></script> -->
 
-    </div>
+        </div>
 </body>
 
 </html>

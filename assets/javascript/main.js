@@ -90,7 +90,7 @@ function ajaxCall() {
             var unit = returned.totalNutrients[nutritionInfor].unit;
             var quantityPer = returned.totalDaily[nutritionInfor].quantity;
             var unitPer = returned.totalDaily[nutritionInfor].unit;
-            $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</br>");
+            $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</p>");
         }
     });
 }
