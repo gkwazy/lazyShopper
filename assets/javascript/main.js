@@ -13,7 +13,7 @@ var database = firebase.database();
 
 var wantedItem;
 
-ajaxCall();
+// ajaxCall();
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
