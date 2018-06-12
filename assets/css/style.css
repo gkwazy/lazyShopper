@@ -1,35 +1,38 @@
 body {
     background: url("../../assets/images/cut.jpeg");
-    font-family: 'Montserrat',
-    sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #Jumbo {
-    color: whitesmoke;
-    
+    color: rgb(0, 255, 255);
     background-color: rgba(20, 20, 20, 0.562);
-   
-   font-family: 'Work Sans',
-   sans-serif;
-    text-shadow: 3px 0 rgb(1, 8, 8),
-    0 .5px rgb(0, 3, 3),
-    .5px 0 rgb(1, 5, 5),
-    0 -1px rgb(3, 21, 26);
-   border-top: 1px solid black;
-   border-bottom: 3px solid black;
-   
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    border-top: 1px solid black;
+    border-bottom: 3px solid black;
 }
 
 #holder {
     margin-top: 10px;
-font-family: 'Montserrat',
-sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #info {
     margin-top: 10px;
-     font-family: 'Montserrat',
-     sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button.ingredients {
+    background-color: rgba(0, 255, 255, 0.411);
+    margin: 10px 10px 10px 10px;
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    color: rgb(233, 233, 233);
+    font-weight: 600;
+    border: solid;
+    padding: 10px;
+      border-radius: 65px 20px 65px 10px;
+    letter-spacing: 0.0725em;
+    box-shadow: 0 10px 20px 0 rgba(250, 250, 250, 0.582), 0 16px 50px 0 rgba(96, 204, 212, 0.637);
 }
 
 #button-style {
@@ -38,34 +41,24 @@ sans-serif;
     border-radius: 65px 20px 65px 10px;
     background-color: rgba(20, 20, 20, 0.562);
     color: whitesmoke;
-    text-shadow: 3px 0 rgb(1, 8, 8),
-    0 .5px rgb(0, 3, 3),
-    .5px 0 rgb(1, 5, 5),
-    0 -1px rgb(3, 21, 26);
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    box-shadow: 10px 10px 8px #2020209c;
 }
 
 #input-box {}
 
-#item-form {}
+#item-form {
+    margin-top: 10px;
+}
 
 #item-input {
     border-radius: 20px;
 }
-#clear-button {
 
-    border-radius: 10px;
-    -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
-    -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
-    cursor: pointer;
-    background-color: rgba(243, 236, 145, 0.329);
-    color: whitesmoke;
-}
-
-
-
-#clear-button {
+button#clear-button {
     margin-bottom: 10px;
-    border-radius: 20px;
+      border-radius: 65px 20px 65px 10px;
+    box-shadow: 10px 10px 8px #202020b7;
 }
 
 #clear-button {
@@ -95,47 +88,11 @@ sans-serif;
     top: 1px;
 }
 
-
-
-
-button {
-    -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
-    -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
-    box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
-    background-color: rgba(133, 108, 77, 0.61);
-    -moz-border-radius: 13px;
-    -webkit-border-radius: 13px;
-    border-radius: 13px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 15px;
-    padding: 9px 16px;
-    text-decoration: none;
-    text-shadow: 2px 1px 1px #2f6627;
-    margin-top:10px;
-}
-
-button:hover {
-    background-color: #91908d98;
-}
-
-button:active {
-    position: relative;
-    top: 1px;
-}
-
-
-
-#add-item {
+input#add-item {
     margin-bottom: 10px;
-    border-radius: 20px;
-    
+      border-radius: 65px 20px 65px 10px;
+      box-shadow: 10px 10px 8px #202020b7;
 }
-
-
-
 
 #add-item {
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -153,10 +110,11 @@ button:active {
     padding: 9px 16px;
     text-decoration: none;
     text-shadow: 2px 1px 1px #2f6627;
+    box-shadow: black;
 }
 
 #add-item:hover {
-   background-color: #91908d98;
+    background-color: #91908d98;
 }
 
 #add-item:active {
@@ -164,57 +122,93 @@ button:active {
     top: 1px;
 }
 
-
 #dump-item {
- text-align: left;
+    text-align: left;
     font-weight: 600;
     padding: 20px;
     border-style: solid;
     border-radius: 65px 20px 65px 10px;
-background-color: rgba(20, 20, 20, 0.562);
-color: whitesmoke;
-text-shadow: 1px 0 rgb(1, 8, 8),
-0 .5px rgb(0, 3, 3),
-.5px 0 rgb(1, 5, 5),
-0 -1px rgb(3, 21, 26);
-
+    background-color: rgba(20, 20, 20, 0.562);
+    color: whitesmoke;
+    text-shadow: 1px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    box-shadow: 10px 10px 8px #2020209c;
 }
 
-
 #dump-item-2 {
-        text-align: left;
+    text-align: left;
     font-weight: 600;
     padding: 20px;
     border-style: solid;
     border-radius: 65px 20px 65px 10px;
- background-color: rgba(236, 214, 186, 0.61);
+    background-color: rgba(236, 214, 186, 0.61);
+    box-shadow: 10px 10px 8px #2020209c;
 }
 
 #location {
-   
     padding: 20px;
     border-style: double;
-  background-color: rgba(0, 255, 255, 0.411);
+    background-color: rgba(0, 255, 255, 0.411);
     border-radius: 65px 20px 65px 10px;
+    box-shadow: 10px 10px 8px #2020209c;
 }
-#title{
-background-color: rgba(0, 255, 255, 0.411);
-    border-radius: 7px;
-     border-style: solid;
+
+#title {
+    background-color: rgba(0, 255, 255, 0.411);
+    border-radius: 65px 10px 65px 10px;
+    border-style: solid;
+    margin: 5px 0 5px 0;
+    box-shadow: 10px 10px 8px #2020209c;
 }
 
 body {
     border-style: double;
 }
+
 #storesList {
-        padding: 20px;
-        border-style: double;
-      
-        border-radius: 65px 20px 65px 10px;
-      background-color: rgba(0, 0, 0, 0.678);
-        color: whitesmoke;
-        text-shadow: 3px 0 rgb(1, 8, 8),
-        0 .5px rgb(0, 3, 3),
-        .5px 0 rgb(1, 5, 5),
-        0 -1px rgb(3, 21, 26);
+    padding: 20px;
+    border-style: double;
+    border-radius: 65px 20px 65px 10px;
+    background-color: rgba(0, 0, 0, 0.678);
+    color: whitesmoke;
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
 }
+
+#storelocator {
+    border-radius: 20px;
+}
+
+input#submit {
+    -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
+    -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
+    box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
+    background-color: rgba(133, 108, 77, 0.61);
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+      border-radius: 65px 20px 65px 10px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 16px;
+    text-decoration: none;
+    text-shadow: 2px 1px 1px #2f6627;
+    margin-top: 10px;
+    box-shadow: 10px 10px 8px #202020b7;
+}
+
+#submit:hover {
+    background-color: #91908d98;
+}
+
+#asubmit:active {
+    position: relative;
+    top: 1px;
+}
+
+#closestStores {
+    color: whitesmoke;
+    text-shadow: 1px 0 rgb(1, 8, 8), 0 1px rgb(0, 0, 0), 1px 1px rgb(1, 5, 5), 0 1px rgb(3, 21, 26);
+}
+
+dude {}
