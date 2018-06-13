@@ -1,5 +1,7 @@
 console.log("yo");
 
+
+
 var config = {
     apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
     authDomain: "lazyshopper-3cd30.firebaseapp.com",
@@ -13,7 +15,9 @@ var database = firebase.database();
 
 var wantedItem;
 
+
 // ajaxCall();
+$('#myModal').modal({ show: true });
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
@@ -203,3 +207,34 @@ $("#clear-button").on("click", function (event) {
     $("#new-item").empty();
     ingredients = [];
 });
+$("#save").on("click", function (event) {
+    var email = $('#user-name').val();
+    var password = $('#password-text').val();
+    console.log(email + password);
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        console.log(error)
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+})
+
+
+
+
+
+
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     // ...
+//   });
+
+// firebase.auth().signOut().then(function() {
+//     // Sign-out successful.
+//   }).catch(function(error) {
+//     // An error happened.
+//   });
