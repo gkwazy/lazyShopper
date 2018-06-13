@@ -236,5 +236,9 @@ $("#new-item").on("click", ".ingredients", function () {
 
 $("#clear-button").on("click", function (event) {
     $("#new-item").empty();
+    $('#dump-item-2').empty()
+    $('#dump-item').empty()
+
+
     ingredients = [];
 });
