@@ -47,6 +47,8 @@ database.ref().on("child_added", function (snapshot) {
 
 //ajaxCall();
 
+// ajaxCall();
+
 function ajaxCall() {
     $(".listOfRecipes").empty();
     $(".listOfNutrtion").empty();
@@ -79,20 +81,20 @@ function ajaxCall() {
         var listIngd = [];
         //appending the wanted information to the HTML for the users view. 
         for (i = 0; i < ingd.length; i++) {
-            $(".listOfNutrtion").append("<tr> ")
+            $(".listOfNutrtion").append("<br> ");
 
             label = ingd[i].recipe.label;
 
+            $(".listOfNutrtion").append("<h1>" + label + "<h1>");
+
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
-                $(".listOfNutrtion").append("<td scope=col >" + ingd[i].recipe.ingredientLines[j] + "</td>")
-
-                $('.listOfNutrition').prepend(`<img src=${ingd[i].recipe.image}></img>`)
-
+                $(".listOfNutrtion").append("<br>" + ingd[i].recipe.ingredientLines[j] + "</br>");
 
 
             }
-            $(".listOfNutrtion").append("</tr>")
+
+
         }
 
     });
@@ -109,14 +111,14 @@ function ajaxCall() {
     }).then(function (returned) {
 
         foodIngd = returned.hits;
-        console.log(returned)
+        console.log(returned);
         var label;
         var foodListIngd = [];
         //appending the wanted information to the html for the user to view
 
         wantedInformation = ["FAT", "CHOCDF", "FIBTG"];
-
-        $(".listOfRecipes").append("<p> calories: " + returned.calories + "</p>");
+        $(".listOfRecipes").append("<h2>Nutrients</h2>");
+        $(".listOfRecipes").append("<br> calories: " + returned.calories + "</br>");
         for (i = 0; i < wantedInformation.length; i++) {
             var nutritionInfor = wantedInformation[i];
             var label = returned.totalNutrients[nutritionInfor].label;
@@ -124,7 +126,8 @@ function ajaxCall() {
             var unit = returned.totalNutrients[nutritionInfor].unit;
             var quantityPer = returned.totalDaily[nutritionInfor].quantity;
             var unitPer = returned.totalDaily[nutritionInfor].unit;
-            $(".listOfRecipes").append("<p> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</p>");
+
+            $(".listOfRecipes").append("<br> " + label + ": " + Math.round(quantity) + unit + " Daily Amount " + Math.round(quantityPer) + unitPer + "</br>");
         }
     });
 }
@@ -227,7 +230,7 @@ $("#add-item").on("click", function (event) {
 $("#new-item").on("click", ".ingredients", function () {
     wantedItem = $(this).attr("data-name");
     console.log(wantedItem);
-    //ajaxCall();
+    ajaxCall();
 
 });
 
