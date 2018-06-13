@@ -211,4 +211,21 @@ input#submit {
     text-shadow: 1px 0 rgb(1, 8, 8), 0 1px rgb(0, 0, 0), 1px 1px rgb(1, 5, 5), 0 1px rgb(3, 21, 26);
 }
 
-dude {}
+.label-click {
+    color: rgba(0, 255, 242, 0.829); 
+     text-shadow: 3px 0 rgb(1, 8, 8),
+     0 .5px rgb(0, 3, 3),
+     .5px 0 rgb(1, 5, 5),
+     0 -1px rgb(3, 21, 26);
+         cursor: pointer;
+  
+}
+.label-click:hover {
+ color: #0026ff;
+}
+
+#asubmit:active {
+    position: relative;
+    top: 1px;
+}
+
