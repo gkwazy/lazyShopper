@@ -13,6 +13,38 @@ var database = firebase.database();
 
 var wantedItem;
 
+$('#add-item').on("click", function (event){
+    event.preventDefault();
+
+    //set wantedItem to input from user
+    wantedItem = $('#item-input').val().trim()
+    // console.log(wantedItem)
+
+    //send wanted item to firebase 
+    var savedItem = {
+        name: wantedItem,
+    }
+    console.log(savedItem)
+
+    database.ref().push(savedItem);
+
+    console.log(savedItem.name);
+
+    //   alert("Item successfully added");
+
+    //   $("#item-input").val("");
+
+    ajaxCall();
+    
+})
+//add saved items to page from firebase
+database.ref().on("child_added", function (snapshot) {
+ 
+  var name = snapshot.val().name;
+  console.log(name);
+})
+
+
 //ajaxCall();
 
 function ajaxCall() {
@@ -31,13 +63,13 @@ function ajaxCall() {
     var appId = "d6f00b57";
     var appKey = "971c028b76c7d2aaa76db5c08e3acfbf";
 
-    var quaryURL = `https://api.edamam.com/search?q=${wantedItem}&app_id=${appId}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`;
+    var queryURLRecipe = `https://api.edamam.com/search?q=${wantedItem}&app_id=${appId}&app_key=${appKey}&from=0&to=3&calories=591-722&health=alcohol-free`;
     //var to help with all the information in the JOSN
     var ingd;
     //ajox call to the recipe api for the users information
     $.ajax({
 
-        url: quaryURL,
+        url: queryURLRecipe,
         method: "GET"
     }).then(function (response) {
 
@@ -55,6 +87,8 @@ function ajaxCall() {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
                 $(".listOfNutrtion").append("<td scope=col >" + ingd[i].recipe.ingredientLines[j] + "</td>")
 
+                $('.listOfNutrition').prepend(`<img src=${ingd[i].recipe.image}></img>`)
+
 
 
             }
@@ -65,12 +99,12 @@ function ajaxCall() {
 
 
     //URL for the food nutrtion. 
-    var quaryURL = `https://api.edamam.com/api/nutrition-data?app_id=${foodAppId}&app_key=${foodAppKey}&ingr=1%20large%20${wantedItem}`
+    var queryURLNutrition = `https://api.edamam.com/api/nutrition-data?app_id=${foodAppId}&app_key=${foodAppKey}&ingr=1%20large%20${wantedItem}`
     var foodIngd;
     //ajax call for the nutrition
     $.ajax({
 
-        url: quaryURL,
+        url: queryURLNutrition,
         method: "GET"
     }).then(function (returned) {
 
@@ -102,10 +136,10 @@ $("#submit").on("click", function (event) {
     var buttonValue = $('#storeLocator').val()
     console.log(buttonValue);
 
-    var queryURL = "http://api.walmartlabs.com/v1/stores?format=json&zip=" + buttonValue + "&apiKey=dw49zcatfq86efbzy9yc2ku3"
+    var queryURLWalmart = `http://api.walmartlabs.com/v1/stores?format=json&zip=${buttonValue}&apiKey=dw49zcatfq86efbzy9yc2ku3`
 
     $.ajax({
-        url: queryURL,
+        url: queryURLWalmart,
         method: "GET",
         dataType: "jsonp",
     }).done(function (storeLocator) {
@@ -126,7 +160,7 @@ $("#submit").on("click", function (event) {
             // div.attr("id", "closeStoreList")
             // div.attr("data-store", "<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
 
-            $('#closestStores').append("<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
+            $('#closestStores').append(`<strong>Store Name: </strong>${name}<br><strong>Phone Number: </strong>${phoneNumber}<br><strong>Address: </strong>${streetAddress} ${city}, ${stateProvCode} ${zip}<br><br>`)
 
         }
         console.log(storeLocator[0].name)
