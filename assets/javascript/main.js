@@ -271,7 +271,7 @@ $("#dump-item").on("click", ".label-click", function (event) {
 
         console.log(wantedURL + ":wantedURL")
         console.log(newURL + " this stuff")
-        if (snapshot.val().wantedURL.indexOf(newURL) < 0) {
+        if (wantedURL.indexOf(newURL) < 0) {
             wantedURL.push(newURL);
             console.log(wantedURL);
         }
