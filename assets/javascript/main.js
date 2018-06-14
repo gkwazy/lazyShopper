@@ -19,7 +19,7 @@ var btnSignUp = $('#btnSignUp')
 var btnLogout = $('#btnLogout')
 
 //add login event
-btnLogin.on("click", e => {
+btnLogin.on("click", function (e) {
     // get user and password
     var email = txtEmail.val().trim()
     var pass = txtPassword.val().trim()
