@@ -13,7 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 
 
-    <title>Lazy People Cart</title>
+    <title>Lazy Cart</title>
 </head>
 
 
@@ -23,93 +23,129 @@
 
     <!-- Image and text -->
     <nav id="Jumbo" class="navbar">
-        <h1>Lazy Food Person</h1>
-    </nav>
-
-    <div id="holder" class="container text-center">
-
-        <!-- div for new buttons -->
-        <div id="button-style">
-            <div id="new-item">
-
-            </div>
-            <form id="item-form">
-                <label for="search-input">
-                    <input id="add-item" type="submit" value="Add Food Item">
-                </label>
-                <input type="text" id="item-input">
-
-                <!-- button triggers new item to be added -->
-
-            </form>
-            <button id="clear-button">Clear Food Items</button>
-
-        </div>
-
-        <div id="info" class="row ">
-            <div class="col-sm-9" id="input-box">
-                <div id="title">
-                    <h1>Nutrition</h1>
+            <h1>Lazy Food Person</h1>
+            <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
+        </nav>
+    
+        <div id="holder" class="container text-center">
+    
+            <!-- div for new buttons -->
+            <div id="button-style">
+                <div id="new-item">
+    
                 </div>
-
-                <row>
-                    <!-- div for edamam data -->
-                    <div id="dump-item-2" class="listOfRecipes">
-
-                    </div>
-
-                </row>
-                <div id="title">
-                    <h1>Recipes</h1>
-                </div>
-
-                <row>
-                    <!-- div for nutri data -->
-                    <div id="dump-item" class="listOfNutrtion">
-
-                    </div>
-                </row>
-
-
-
-                <br>
-
-
+                <form id="item-form">
+                    <label for="search-input">
+                        <input id="add-item" type="submit" value="Add Food Item">
+                    </label>
+                    <input type="text" id="item-input">
+    
+                    <!-- button triggers new item to be added -->
+    
+                </form>
+                <button id="clear-button">Clear Food Items</button>
+    
             </div>
-            <!-- div for walmart api -->
-            <div class="col-sm-3">
-
-                <!-- <div id="title">
-                    <h1>Recipes</h1>
-                </div> -->
-
-                <div class="col-sm-12" id="location">
-
-
-                    <div id="storesList">
-                        <div>
-                            <h3>Walmart Store Locator</h3>
+    
+            <div id="info" class="row ">
+                <div class="col-sm-9" id="input-box">
+                    <div id="title">
+                        <h1>Nutrition</h1>
+                    </div>
+    
+                    <row>
+                        <!-- div for edamam data -->
+                        <div id="dump-item-2" class="listOfRecipes">
+    
                         </div>
-                        <form>
-                            Enter Zip Code
-                            <br>
-                            <input id="storeLocator" type="text">
-                            <br>
-                            <input id="submit" type="submit" value="Submit">
-                        </form>
+    
+                    </row>
+                    <div id="title">
+                        <h1>Recipes</h1>
+                        
                     </div>
-                    <div id="closestStores">
-                        <ul>
-
-                        </ul>
-                    </div>
-
-
-
+    
+                    <row>
+                        <!-- div for nutri data -->
+                        <div id="dump-item" class="listOfNutrtion">
+                      
+    
+                        </div>
+                    </row>
+    
+    
+    
+                    <br>
+    
+    
                 </div>
+                <!-- div for walmart api -->
+                <div class="col-sm-3">
+    
+                    <!-- <div id="title">
+                        <h1>Recipes</h1>
+                    </div> -->
+    
+                    <div class="col-sm-12" id="location">
+    
+    
+                        <div  class="form-group" id="storesList">
+                            <div>
+                                <h3>Walmart Store Locator</h3>
+                            </div>
+                            <form>
+                                Enter Zip Code
+                                <br>
+                                <input id="storeLocator" class="form-group" type="text">
+                                <br>
+                                <input id="submit" class="form-group" type="submit" value="Submit">
+                            </form>
+                        </div>
+                        <div id="closestStores">
+                            <ul>
+    
+                            </ul>
+                        </div>
+    
+    
+                    </div>
+    
+                    <div class="col-sm-12" id="location">
+    
+                        <div id="storesList">
+    
+                        </div>
+    
+                    </div>
+    
+    
+                </div>
+    
 
-
-            </div>
+            <div class="modal" id="myModal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><strong>Log In</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-name" class="col-form-label"></label>
+                                <input type="text" class="form-control" id="txtEmail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password-text" class="col-form-label"></label>
+                                <textarea class="form-control" id="txtPassword" placeholder="Password"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnLogin" class="btn btn-primary">Log in</button>
+                                <button type="button" id="btnSignUp" class="btn btn-action">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 

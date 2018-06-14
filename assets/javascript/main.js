@@ -11,6 +11,92 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+
+var txtEmail = $('#txtEmail')
+var txtPassword = $('#txtPassword')
+var btnLogin = $('#btnLogin')
+var btnSignUp = $('#btnSignUp')
+var btnLogout = $('#btnLogout')
+
+//add login event
+btnLogin.on("click", e => {
+    // get user and password
+    var email = txtEmail.val().trim()
+    var pass = txtPassword.val().trim()
+    var auth = firebase.auth()
+    // sign in
+    auth.signInWithEmailAndPassword(email, pass).then(function(e){
+        console.log(e.message)
+      })
+    $('.modal').modal('hide')
+})
+
+// Add signup event
+btnSignUp.on("click", function (e) {
+     // get user and password
+     var email = txtEmail.val().trim()
+     var pass = txtPassword.val().trim()
+     var auth = firebase.auth()
+     // sign in
+     auth.signInWithEmailAndPassword(email, pass).then(function(e){
+        console.log(e.message)
+      })
+     $('.modal').modal('hide')
+})
+
+// Logout Btn
+btnLogout.on("click", function (e) {
+    firebase.auth().signOut()
+    txtEmail.val('')
+    txtPassword.val('')
+    $('.modal').modal('show')
+
+})
+
+// Add a realtime listener
+firebase.auth().onAuthStateChanged(function (firebaseUser) {
+    if(firebaseUser) {
+        console.log (firebaseUser)
+        $('.modal').modal('hide')
+        btnLogout.show()
+    } else {
+        console.log('not logged in')
+        btnLogout.hide()
+        $('.modal').modal('show')
+    }
+})
+
+// // Add a realtime listener
+// firebase.auth().onAuthStateChanged(function (firebaseUser) {
+//     if(firebaseUser) {
+//         console.log (firebaseUser)
+//         var userEmail =  firebaseUser.email;
+//         var splitEmail = userEmail.split('@');
+//         var userName = splitEmail[0];
+//         // $('.modal').hide()
+//         database.ref('users/' + userName).set({
+//             userEmail: userEmail,
+//             userName: userName
+//         })
+//         btnLogout.show()
+//     } else {
+//         console.log('not logged in')
+//         btnLogout.hide()
+//         // $('.modal').show()
+//     }
+// })
+// database.ref('users/').on('value', function(snapshot){
+//     console.log(snapshot.val());
+// })
+
+// database.ref('users/asdf').on("value", function(snapshot){
+//     console.log(snapshot.val(), 'this should be our user we need later on.');
+//     database.ref('users/asdf/recipies').set({
+//         name: "dank green chili",
+//         ingredients: ['chili', 'beans']
+//     })
+// })
+
 var wantedItem;
 
 $('#add-item').on("click", function (event){
@@ -48,6 +134,8 @@ database.ref().on("child_added", function (snapshot) {
 //ajaxCall();
 
 // ajaxCall();
+
+$('#myModal').modal({ show: true });
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
