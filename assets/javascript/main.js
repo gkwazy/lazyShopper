@@ -173,7 +173,7 @@ function ajaxCall() {
 
             label = ingd[i].recipe.label;
 
-            $(".listOfNutrtion").append("<h1>" + label + "<h1>");
+            $(".listOfNutrtion").append("<h1 class='label-click'>" + label + "<h1>");
 
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
@@ -181,7 +181,6 @@ function ajaxCall() {
 
 
             }
-
 
         }
 
@@ -222,9 +221,9 @@ function ajaxCall() {
 
 $("#submit").on("click", function (event) {
     event.preventDefault();
-    $('#closestStores').empty()
+    $('#closestStores').empty();
 
-    var buttonValue = $('#storeLocator').val()
+    var buttonValue = $('#storeLocator').val();
     console.log(buttonValue);
 
     var queryURLWalmart = `http://api.walmartlabs.com/v1/stores?format=json&zip=${buttonValue}&apiKey=dw49zcatfq86efbzy9yc2ku3`
