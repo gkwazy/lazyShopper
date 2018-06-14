@@ -14,6 +14,8 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 var wantedItem;
+var wantedURL = [];
+
 
 $('#add-item').on("click", function (event) {
     event.preventDefault();
@@ -28,7 +30,7 @@ $('#add-item').on("click", function (event) {
     }
     console.log(savedItem)
 
-    database.ref().push(savedItem);
+    // database.ref().push(savedItem);
 
     console.log(savedItem.name);
 
@@ -47,10 +49,8 @@ database.ref().on("child_added", function (snapshot) {
 })
 
 
-//ajaxCall();
-
-// ajaxCall();
-$('#myModal').modal({ show: true });
+loadList();
+//$('#myModal').modal({ show: true });
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
@@ -87,8 +87,8 @@ function ajaxCall() {
             $(".listOfNutrtion").append("<br> ");
 
             label = ingd[i].recipe.label;
-
-            $(".listOfNutrtion").append("<h1 class='label-click'>" + label + "<h1>");
+            console.log("url " + ingd[i].recipe.url);
+            $(".listOfNutrtion").append("<h1 class='label-click' data-recipe = '" + ingd[i].recipe.url + " data-name = '" + label + "'>" + label + "<h1>");
 
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
@@ -258,20 +258,41 @@ $("#save").on("click", function (event) {
     });
 })
 
+$("#dump-item").on("click", ".label-click", function (event) {
+    event.preventDefault();
+    wantedURL = [];
+    console.log("button clicked")
+    var newURL = $(this).attr("data-recipe");
+    database.ref("URLs").once("value", function (snapshot) {
+        for (i = 0; i < snapshot.val().wantedURL.length; i++) {
+            wantedURL.push(snapshot.val().wantedURL[i]);
+            console.log((snapshot.val()));
+        }
 
+        console.log(wantedURL + ":wantedURL")
+        console.log(newURL + " this stuff")
+        if (snapshot.val().wantedURL.indexOf(newURL) < 0) {
+            wantedURL.push(newURL);
+            console.log(wantedURL);
+        }
+        database.ref("URLs").set({
+            wantedURL
+        });
+    });
+    $(".recipeAdd").empty();
+    for (i = 0; i < wantedURL.length; i++) {
+        $(".recipeAdd").append("<br>" + wantedURL[i] + "</br>")
+    }
+});
 
-
-
-
-// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-//     // Handle Errors here.
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // ...
-//   });
-
-// firebase.auth().signOut().then(function() {
-//     // Sign-out successful.
-//   }).catch(function(error) {
-//     // An error happened.
-//   });
+function loadList() {
+    console.log("loadList ran");
+    $(".recipeAdd").empty();
+    database.ref("URLs").once("value", function (snapshot) {
+        for (i = 0; i < snapshot.val().wantedURL.length; i++) {
+            wantedURL.push(snapshot.val().wantedURL[i]);
+            $(".recipeAdd").append("<br>" + wantedURL[i].link(wantedURL[i]) + "</br>")
+            console.log("load list wanted; " + wantedURL[i])
+        }
+    });
+};
