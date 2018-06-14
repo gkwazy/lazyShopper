@@ -89,64 +89,6 @@ database.ref('users/').on('value', function(snapshot){
     console.log(snapshot.val());
 })
 
-
-// // Add a realtime listener
-// firebase.auth().onAuthStateChanged(function (firebaseUser) {
-//     if(firebaseUser) {
-//         console.log (firebaseUser)
-//         var userEmail =  firebaseUser.email;
-//         var splitEmail = userEmail.split('@');
-//         var userName = splitEmail[0];
-//         // $('.modal').hide()
-//         database.ref('users/' + userName).set({
-//             userEmail: userEmail,
-//             userName: userName
-//         })
-//         btnLogout.show()
-//     } else {
-//         console.log('not logged in')
-//         btnLogout.hide()
-//         // $('.modal').show()
-//     }
-// })
-// database.ref('users/').on('value', function(snapshot){
-//     console.log(snapshot.val());
-// })
-
-// database.ref('users/asdf').on("value", function(snapshot){
-//     console.log(snapshot.val(), 'this should be our user we need later on.');
-//     database.ref('users/asdf/recipies').set({
-//         name: "dank green chili",
-//         ingredients: ['chili', 'beans']
-//     })
-// })
-
-var wantedItem;
-
-$('#add-item').on("click", function (event){
-    event.preventDefault();
-
-    //set wantedItem to input from user
-    wantedItem = $('#item-input').val().trim()
-    // console.log(wantedItem)
-
-    //send wanted item to firebase 
-    var savedItem = {
-        name: wantedItem,
-    }
-    console.log(savedItem)
-
-    database.ref().push(savedItem);
-
-    console.log(savedItem.name);
-
-    //   alert("Item successfully added");
-
-    //   $("#item-input").val("");
-
-    ajaxCall();
-    
-})
 //add saved items to page from firebase
 database.ref().on("child_added", function (snapshot) {
  
@@ -154,10 +96,6 @@ database.ref().on("child_added", function (snapshot) {
   console.log(name);
 })
 
-
-//ajaxCall();
-
-// ajaxCall();
 
 $('#myModal').modal({ show: true });
 
@@ -170,8 +108,6 @@ function ajaxCall() {
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
     //item that the user is searching for, var gathered 
     //for, the search bar
-
-
 
     //api key for the recipe api
     var appId = "d6f00b57";
@@ -263,7 +199,6 @@ $("#submit").on("click", function (event) {
         console.log(closestStores);
         for (var i = 0; i < closestStores.length; i++) {
             //we need to gen a bunch of HTML elemts to put our store data inside
-            // var div = $('<div></div>')
 
             var name = storeLocator[i].name
             var phoneNumber = storeLocator[i].phoneNumber
@@ -271,9 +206,6 @@ $("#submit").on("click", function (event) {
             var city = storeLocator[i].city
             var stateProvCode = storeLocator[i].stateProvCode
             var zip = storeLocator[i].zip
-
-            // div.attr("id", "closeStoreList")
-            // div.attr("data-store", "<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
 
             $('#closestStores').append(`<strong>Store Name: </strong>${name}<br><strong>Phone Number: </strong>${phoneNumber}<br><strong>Address: </strong>${streetAddress} ${city}, ${stateProvCode} ${zip}<br><br>`)
 
