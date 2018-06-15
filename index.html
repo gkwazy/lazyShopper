@@ -6,11 +6,14 @@
     <link rel="icon" href="assets/images/shoppingcart.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style></style>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
 
     <title>Lazy People Cart</title>
@@ -23,7 +26,6 @@
 
     <!-- Image and text -->
     <nav id="Jumbo" class="navbar">
-
         <h1>Lazy Food Person</h1>
         <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
     </nav>
@@ -64,45 +66,43 @@
                 <div id="title">
                     <h1>Recipes</h1>
 
-
                 </div>
-                <!-- div for walmart api -->
-                <div class="col-sm-3">
 
-                    <!-- <div id="title">
-                        <h1>Recipes</h1>
-                    </div> -->
-
-                    <div class="col-sm-12" id="location">
-
-
-                        <div class="form-group" id="storesList">
-                            <div>
-                                <h3>Walmart Store Locator</h3>
-                            </div>
-                            <form>
-                                Enter Zip Code
-                                <br>
-                                <input id="storeLocator" class="form-group" type="text">
-                                <br>
-                                <input id="submit" class="form-group" type="submit" value="Submit">
-                            </form>
-                        </div>
-                        <div id="closestStores">
-                            <ul>
-
-                            </ul>
-                        </div>
+                <row>
+                    <!-- div for nutri data -->
+                    <div id="dump-item" class="listOfNutrtion">
 
 
                     </div>
+                </row>
 
-                    <div class="col-sm-12" id="location">
 
-                        <div id="storesList">
 
+                <br>
+
+
+            </div>
+            <!-- div for walmart api -->
+            <div class="col-sm-3">
+
+                <!-- <div id="title">
+                    <h1>Recipes</h1>
+                </div> -->
+
+                <div class="col-sm-12" id="location">
+
+
+                    <div class="form-group" id="storesList">
+                        <div>
+                            <h3>Walmart Store Locator</h3>
                         </div>
-
+                        <form>
+                            Enter Zip Code
+                            <br>
+                            <input id="storeLocator" class="form-group" type="text">
+                            <br>
+                            <input id="submit" class="form-group" type="submit" value="Submit">
+                        </form>
                     </div>
                     <div id="closestStores">
                         <ul>
@@ -127,26 +127,29 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">
+                                <strong>Log In</strong>
+                            </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="form-group">
-                            <label for="user-name" class="col-form-label">userName:</label>
-                            <input type="text" class="form-control" id="user-name">
+                            <label for="user-name" class="col-form-label"></label>
+                            <input type="text" class="form-control" id="txtEmail" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for="password-text" class="col-form-label">Password:</label>
-                            <textarea class="form-control" id="password-text"></textarea>
+                            <label for="password-text" class="col-form-label"></label>
+                            <textarea class="form-control" id="txtPassword" placeholder="Password"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="save" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" id="btnLogin" class="btn btn-primary">Log in</button>
+                            <button type="button" id="btnSignUp" class="btn btn-action">Sign Up</button>
                         </div>
                     </div>
                 </div>
             </div>
+
 
 
             <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
