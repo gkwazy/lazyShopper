@@ -144,7 +144,7 @@ function ajaxCall() {
 
             label = ingd[i].recipe.label;
 
-            $(".listOfNutrtion").append("<h1 class='label-click' data-recipe = '" + ingd[i].recipe.url + "'>" + label + "</h1>")
+            $(".listOfNutrtion").append("<h1 class='label-click' data-recipe = '" + ingd[i].recipe.url + "' data-name = '" + label + "'>" + label + "</h1>")
 
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
@@ -321,7 +321,7 @@ $("#dump-item").on("click", ".label-click", function (event) {
     $(".recipeAdd").empty();
     wantedURL = [];
     console.log("button clicked")
-    var newURL = $(this).attr("data-recipe");
+    var newURL = { url: $(this).attr("data-recipe"), label: $(this).attr("data-name") };
     database.ref("URLs").once("value", function (snapshot) {
         for (i = 0; i < snapshot.val().wantedURL.length; i++) {
             wantedURL.push(snapshot.val().wantedURL[i]);
@@ -340,7 +340,7 @@ $("#dump-item").on("click", ".label-click", function (event) {
 
         for (i = 0; i < wantedURL.length; i++) {
             console.log("completed");
-            $(".recipeAdd").append("<br>" + wantedURL[i].link(wantedURL[i]) + "</br>");
+            $(".recipeAdd").append("<br>" + wantedURL[i].label.link(wantedURL[i].url) + "</br>");
         }
     });
 });
@@ -351,7 +351,7 @@ function loadList() {
     database.ref("URLs").once("value", function (snapshot) {
         for (i = 0; i < snapshot.val().wantedURL.length; i++) {
             wantedURL.push(snapshot.val().wantedURL[i]);
-            $(".recipeAdd").append("<br>" + wantedURL[i].link(wantedURL[i]) + "</br>");
+            $(".recipeAdd").append("<br>" + wantedURL[i].label.link(wantedURL[i].url) + "</br>");
             console.log("load list wanted; " + wantedURL[i])
         }
     });
