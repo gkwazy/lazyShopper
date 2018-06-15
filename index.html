@@ -6,11 +6,14 @@
     <link rel="icon" href="assets/images/shoppingcart.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style></style>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
 
     <title>Lazy Cart</title>
@@ -23,16 +26,35 @@
 
     <!-- Image and text -->
     <nav id="Jumbo" class="navbar">
-            <h1>Lazy Shoppper</h1>
-            <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
-        </nav>
-    
-        <div id="holder" class="container text-center">
-    
-            <!-- div for new buttons -->
-            <div id="button-style">
-                <div id="new-item">
-    
+
+        <h1>Lazy Food Person</h1>
+        <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
+    </nav>
+
+    <div id="holder" class="container text-center">
+
+        <!-- div for new buttons -->
+        <div id="button-style">
+            <div id="new-item">
+
+            </div>
+            <form id="item-form">
+                <label for="search-input">
+                    <input id="add-item" type="submit" value="Add Food Item">
+                </label>
+                <input type="text" id="item-input">
+
+                <!-- button triggers new item to be added -->
+
+            </form>
+            <button id="clear-button">Clear Food Items</button>
+
+        </div>
+
+        <div id="info" class="row ">
+            <div class="col-sm-9" id="input-box">
+                <div id="title">
+                    <h1>Nutrition</h1>
                 </div>
                 <form id="item-form">
                     <label for="search-input">
@@ -52,70 +74,49 @@
                     <div id="title">
                         <h1>Nutrition</h1>
                     </div>
-    
-                    <row>
-                        <!-- div for edamam data -->
-                        <div id="dump-item-2" class="listOfRecipes">
-    
-                        </div>
-    
-                    </row>
-                    <div id="title">
-                        <h1>Recipes</h1>
-                        
-                    </div>
-    
-                    <row>
-                        <!-- div for nutri data -->
-                        <div id="dump-item" class="listOfNutrtion">
-                      
-    
-                        </div>
-                    </row>
-    
-    
-    
-                    <br>
-    
-    
+
+
+                </row>
+                <div id="title">
+                    <h1>Recipes</h1>
+
                 </div>
-                <!-- div for walmart api -->
-                <div class="col-sm-3">
-    
-                    <!-- <div id="title">
-                        <h1>Recipes</h1>
-                    </div> -->
-    
-                    <div class="col-sm-12" id="location">
-    
-    
-                        <div  class="form-group" id="storesList">
-                            <div>
-                                <h3>Walmart Store Locator</h3>
-                            </div>
-                            <form>
-                                Enter Zip Code
-                                <br>
-                                <input id="storeLocator" class="form-group" type="text">
-                                <br>
-                                <input id="submit" class="form-group" type="submit" value="Submit">
-                            </form>
-                        </div>
-                        <div id="closestStores">
-                            <ul>
-    
-                            </ul>
-                        </div>
-    
-    
+
+                <row>
+                    <!-- div for nutri data -->
+                    <div id="dump-item" class="listOfNutrtion">
+
+
                     </div>
-    
-                    <div class="col-sm-12" id="location">
-    
-                        <div id="storesList">
-    
+                </row>
+
+
+
+                <br>
+
+
+            </div>
+            <!-- div for walmart api -->
+            <div class="col-sm-3">
+
+                <!-- <div id="title">
+                    <h1>Recipes</h1>
+                </div> -->
+
+                <div class="col-sm-12" id="location">
+
+
+                    <div class="form-group" id="storesList">
+                        <div>
+                            <h3>Walmart Store Locator</h3>
                         </div>
-    
+                        <form>
+                            Enter Zip Code
+                            <br>
+                            <input id="storeLocator" class="form-group" type="text">
+                            <br>
+                            <input id="submit" class="form-group" type="submit" value="Submit">
+                        </form>
                     </div>
     
     
@@ -146,6 +147,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
 
