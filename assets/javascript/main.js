@@ -13,40 +13,105 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
+var auth = firebase.auth()
+
+var txtEmail = $('#txtEmail')
+var txtPassword = $('#txtPassword')
+var btnLogin = $('#btnLogin')
+var btnSignUp = $('#btnSignUp')
+var btnLogout = $('#btnLogout')
+
+//add login event
+btnLogin.on("click", function (e) {
+    e.preventDefault()
+    // get user and password
+    var email = txtEmail.val().trim()
+    var pass = txtPassword.val().trim()
+    // sign in
+    auth.signInWithEmailAndPassword(email, pass).then(function (e) {
+        console.log(e.message)
+      })
+    // $('.modal').modal('hide')
+})
+
+// Add signup event
+btnSignUp.on("click", function (e) {
+    e.preventDefault()
+     // get user and password
+     var email = txtEmail.val().trim()
+     var pass = txtPassword.val().trim()
+     // sign in
+     auth.createUserWithEmailAndPassword(email, pass).then(function (e) {
+        console.log(e.message)
+      })
+    //  $('.modal').modal('hide')
+})
+
+
+
+// Logout Btn
+btnLogout.on("click", function (e) {
+    e.preventDefault()
+    firebase.auth().signOut()
+    txtEmail.val('')
+    txtPassword.val('')
+    $('.modal').modal('show')
+
+})
+
+// Add a realtime listener
+firebase.auth().onAuthStateChanged(function (firebaseUser) {
+    if(firebaseUser) {
+        console.log (firebaseUser)
+        var userEmail = firebaseUser.email
+        console.log("  Email: " + firebaseUser.email);
+        var uid = firebaseUser.uid
+        console.log("  Provider-specific UID: " + firebaseUser.uid);
+        database.ref('users/' + uid).set({
+            userEmail: userEmail,
+            uid: uid
+        })
+        $('.modal').modal('hide')
+        database.ref('users/' + uid).on("value", function(snapshot){
+            console.log(snapshot.val(), 'this should be our current user we need later on.');
+            database.ref(`users/${uid}/recipies`).set({
+                // push our urls to this path
+                url: "dank green chili",
+            })
+        })
+        btnLogout.show()
+    } else {
+        console.log('not logged in')
+        btnLogout.hide()
+        $('.modal').modal('show')
+    }
+})
+
+database.ref('users/').on('value', function(snapshot){
+    console.log(snapshot.val());
+})
+
+//add saved items to page from firebase
+// database.ref().on("child_added", function (snapshot) {
+ 
+//   var name = snapshot.val().name;
+//   console.log(name);
+// })
+
+
 var wantedItem;
 var wantedURL = [];
-
 
 $('#add-item').on("click", function (event) {
     event.preventDefault();
 
-    //set wantedItem to input from user
-    wantedItem = $('#item-input').val().trim()
-    // console.log(wantedItem)
-
-    //send wanted item to firebase 
-    var savedItem = {
-        name: wantedItem,
-    }
-    console.log(savedItem)
-
     // database.ref().push(savedItem);
-
-    console.log(savedItem.name);
-
-    //   alert("Item successfully added");
-
-    //   $("#item-input").val("");
-
+  
     ajaxCall();
-
 })
-//add saved items to page from firebase
-database.ref().on("child_added", function (snapshot) {
 
-    var name = snapshot.val().name;
-    console.log(name);
-})
+
+
 
 
 loadList();
@@ -61,8 +126,6 @@ function ajaxCall() {
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
     //item that the user is searching for, var gathered 
     //for, the search bar
-
-
 
     //api key for the recipe api
     var appId = "d6f00b57";
@@ -153,7 +216,6 @@ $("#submit").on("click", function (event) {
         console.log(closestStores);
         for (var i = 0; i < closestStores.length; i++) {
             //we need to gen a bunch of HTML elemts to put our store data inside
-            // var div = $('<div></div>')
 
             var name = storeLocator[i].name
             var phoneNumber = storeLocator[i].phoneNumber
@@ -161,9 +223,6 @@ $("#submit").on("click", function (event) {
             var city = storeLocator[i].city
             var stateProvCode = storeLocator[i].stateProvCode
             var zip = storeLocator[i].zip
-
-            // div.attr("id", "closeStoreList")
-            // div.attr("data-store", "<strong>Store Name: </strong>" + name + "<br>" + "<strong>Phone Number: </strong>" + phoneNumber + "<br>" + "<strong>Address: </strong>" + streetAddress + " " + city + ", " + stateProvCode + " " + zip + "<br><br>")
 
             $('#closestStores').append(`<strong>Store Name: </strong>${name}<br><strong>Phone Number: </strong>${phoneNumber}<br><strong>Address: </strong>${streetAddress} ${city}, ${stateProvCode} ${zip}<br><br>`)
 

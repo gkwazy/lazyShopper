@@ -16,7 +16,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
 
-    <title>Lazy People Cart</title>
+    <title>Lazy Cart</title>
 </head>
 
 
@@ -26,10 +26,9 @@
 
     <!-- Image and text -->
     <nav id="Jumbo" class="navbar">
+
         <h1>Lazy Food Person</h1>
-        <button id="submit-button">
-            submit
-        </button>
+        <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
     </nav>
 
     <div id="holder" class="container text-center">
@@ -57,12 +56,25 @@
                 <div id="title">
                     <h1>Nutrition</h1>
                 </div>
-
-                <row>
-                    <!-- div for edamam data -->
-                    <div id="dump-item-2" class="listOfRecipes">
-
+                <form id="item-form">
+                    <label for="search-input">
+                        <input id="add-item" type="submit" value="Add Food Item">
+                    </label>
+                    <input type="text" id="item-input">
+    
+                    <!-- button triggers new item to be added -->
+    
+                </form>
+                <button id="clear-button">Clear Food Items</button>
+    
+            </div>
+    
+            <div id="info" class="row ">
+                <div class="col-sm-9" id="input-box">
+                    <div id="title">
+                        <h1>Nutrition</h1>
                     </div>
+
 
                 </row>
                 <div id="title">
@@ -106,49 +118,36 @@
                             <input id="submit" class="form-group" type="submit" value="Submit">
                         </form>
                     </div>
-                    <div id="closestStores">
-                        <ul>
-
-                        </ul>
-                    </div>
-
-
+    
+    
                 </div>
+    
 
-                <div class="col-sm-12" id="location">
-
-                    <div id="storesList" class="recipeAdd">
-
-                    </div>
-
-                </div>
-
-
-            </div>
             <div class="modal" id="myModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="form-group">
-                            <label for="user-name" class="col-form-label">userName:</label>
-                            <input type="text" class="form-control" id="user-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="password-text" class="col-form-label">Password:</label>
-                            <textarea class="form-control" id="password-text"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="save" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><strong>Log In</strong></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-name" class="col-form-label"></label>
+                                <input type="text" class="form-control" id="txtEmail" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password-text" class="col-form-label"></label>
+                                <textarea class="form-control" id="txtPassword" placeholder="Password"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="btnLogin" class="btn btn-primary">Log in</button>
+                                <button type="button" id="btnSignUp" class="btn btn-action">Sign Up</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
 
 
 
