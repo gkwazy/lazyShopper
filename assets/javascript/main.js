@@ -1,7 +1,5 @@
 console.log("yo");
 
-
-
 var config = {
     apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
     authDomain: "lazyshopper-3cd30.firebaseapp.com",
@@ -49,8 +47,7 @@ database.ref().on("child_added", function (snapshot) {
 })
 
 
-loadList();
-//$('#myModal').modal({ show: true });
+$('#myModal').modal({ show: true });
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
@@ -87,8 +84,8 @@ function ajaxCall() {
             $(".listOfNutrtion").append("<br> ");
 
             label = ingd[i].recipe.label;
-            console.log("url " + ingd[i].recipe.url);
-            $(".listOfNutrtion").append("<h1 class='label-click' data-recipe = '" + ingd[i].recipe.url + " data-name = '" + label + "'>" + label + "<h1>");
+
+            $(".listOfNutrtion").append("<h1>" + label + "<h1>");
 
             for (j = 0; j < ingd[i].recipe.ingredientLines.length; j++) {
                 listIngd.push(ingd[i].recipe.ingredientLines[j]);
@@ -96,6 +93,7 @@ function ajaxCall() {
 
 
             }
+
 
         }
 
@@ -136,9 +134,9 @@ function ajaxCall() {
 
 $("#submit").on("click", function (event) {
     event.preventDefault();
-    $('#closestStores').empty();
+    $('#closestStores').empty()
 
-    var buttonValue = $('#storeLocator').val();
+    var buttonValue = $('#storeLocator').val()
     console.log(buttonValue);
 
     var queryURLWalmart = `http://api.walmartlabs.com/v1/stores?format=json&zip=${buttonValue}&apiKey=dw49zcatfq86efbzy9yc2ku3`
@@ -243,6 +241,7 @@ $("#clear-button").on("click", function (event) {
 
 
     ingredients = [];
+
 });
 $("#save").on("click", function (event) {
     var email = $('#user-name').val();
