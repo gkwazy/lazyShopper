@@ -11,88 +11,11 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-var auth = firebase.auth()
-
-var txtEmail = $('#txtEmail')
-var txtPassword = $('#txtPassword')
-var btnLogin = $('#btnLogin')
-var btnSignUp = $('#btnSignUp')
-var btnLogout = $('#btnLogout')
-
-//add login event
-btnLogin.on("click", function (e) {
-    e.preventDefault()
-    // get user and password
-    var email = txtEmail.val().trim()
-    var pass = txtPassword.val().trim()
-    // sign in
-    auth.signInWithEmailAndPassword(email, pass).then(function (e) {
-        console.log(e.message)
-      })
-    // $('.modal').modal('hide')
-})
-
-// Add signup event
-btnSignUp.on("click", function (e) {
-    e.preventDefault()
-     // get user and password
-     var email = txtEmail.val().trim()
-     var pass = txtPassword.val().trim()
-     // sign in
-     auth.createUserWithEmailAndPassword(email, pass).then(function (e) {
-        console.log(e.message)
-      })
-    //  $('.modal').modal('hide')
-})
-
-
-
-// Logout Btn
-btnLogout.on("click", function (e) {
-    e.preventDefault()
-    firebase.auth().signOut()
-    txtEmail.val('')
-    txtPassword.val('')
-    $('.modal').modal('show')
-
-})
-
-// Add a realtime listener
-firebase.auth().onAuthStateChanged(function (firebaseUser) {
-    if(firebaseUser) {
-        console.log (firebaseUser)
-        var userEmail = firebaseUser.email
-        console.log("  Email: " + firebaseUser.email);
-        var uid = firebaseUser.uid
-        console.log("  Provider-specific UID: " + firebaseUser.uid);
-        database.ref('users/' + uid).set({
-            userEmail: userEmail,
-            uid: uid
-        })
-        $('.modal').modal('hide')
-        database.ref('users/' + uid).on("value", function(snapshot){
-            console.log(snapshot.val(), 'this should be our current user we need later on.');
-            database.ref(`users/${uid}/recipies`).set({
-                // push our urls to this path
-                url: "dank green chili",
-            })
-        })
-        btnLogout.show()
-    } else {
-        console.log('not logged in')
-        btnLogout.hide()
-        $('.modal').modal('show')
-    }
-})
-
-database.ref('users/').on('value', function(snapshot){
-    console.log(snapshot.val());
-})
-
-
 var wantedItem;
+var wantedURL = [];
 
-$('#add-item').on("click", function (event){
+
+$('#add-item').on("click", function (event) {
     event.preventDefault();
 
     //set wantedItem to input from user
@@ -105,7 +28,7 @@ $('#add-item').on("click", function (event){
     }
     console.log(savedItem)
 
-    database.ref().push(savedItem);
+    // database.ref().push(savedItem);
 
     console.log(savedItem.name);
 
@@ -114,19 +37,15 @@ $('#add-item').on("click", function (event){
     //   $("#item-input").val("");
 
     ajaxCall();
-    
+
 })
 //add saved items to page from firebase
 database.ref().on("child_added", function (snapshot) {
- 
-  var name = snapshot.val().name;
-  console.log(name);
+
+    var name = snapshot.val().name;
+    console.log(name);
 })
 
-
-//ajaxCall();
-
-// ajaxCall();
 
 $('#myModal').modal({ show: true });
 
@@ -322,4 +241,58 @@ $("#clear-button").on("click", function (event) {
 
 
     ingredients = [];
+
 });
+$("#save").on("click", function (event) {
+    var email = $('#user-name').val();
+    var password = $('#password-text').val();
+    console.log(email + password);
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        console.log(error)
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+})
+
+$("#dump-item").on("click", ".label-click", function (event) {
+    event.preventDefault();
+    wantedURL = [];
+    console.log("button clicked")
+    var newURL = $(this).attr("data-recipe");
+    database.ref("URLs").once("value", function (snapshot) {
+        for (i = 0; i < snapshot.val().wantedURL.length; i++) {
+            wantedURL.push(snapshot.val().wantedURL[i]);
+            console.log((snapshot.val()));
+        }
+
+        console.log(wantedURL + ":wantedURL")
+        console.log(newURL + " this stuff")
+        if (wantedURL.indexOf(newURL) < 0) {
+            wantedURL.push(newURL);
+            console.log(wantedURL);
+        }
+        database.ref("URLs").set({
+            wantedURL
+        });
+    });
+    $(".recipeAdd").empty();
+    for (i = 0; i < wantedURL.length; i++) {
+        $(".recipeAdd").append("<br>" + wantedURL[i].link(wantedURL[i]) + "</br>")
+    }
+});
+
+function loadList() {
+    console.log("loadList ran");
+    $(".recipeAdd").empty();
+    database.ref("URLs").once("value", function (snapshot) {
+        for (i = 0; i < snapshot.val().wantedURL.length; i++) {
+            wantedURL.push(snapshot.val().wantedURL[i]);
+            $(".recipeAdd").append("<br>" + wantedURL[i].link(wantedURL[i]) + "</br>")
+            console.log("load list wanted; " + wantedURL[i])
+        }
+    });
+};
+
