@@ -1,5 +1,3 @@
-console.log("yo");
-
 var config = {
     apiKey: "AIzaSyDWjwGAMxs6Xcd-wGfz-Fgi960RZLhJ70s",
     authDomain: "lazyshopper-3cd30.firebaseapp.com",
@@ -106,12 +104,14 @@ $('#add-item').on("click", function (event) {
 loadList();
 
 
-$('#myModal').modal({ show: true });
+$('#myModal').modal({
+    show: true
+});
 
 function ajaxCall() {
     $(".listOfRecipes").empty();
     $(".listOfNutrtion").empty();
-
+    $(".recipeAdd").empty();
 
     var foodAppId = "ad90d902";
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
@@ -244,7 +244,7 @@ renderButtons();
 function renderButtons() {
 
     // Deleting the ingredient buttons prior to adding new ingredient buttons
-    // (this is necessary otherwise we will have repeat buttons)
+
     $("#new-item").empty();
 
     // Looping through the array of ingredients
@@ -270,12 +270,11 @@ function renderButtons() {
 // This function handles events where one button is clicked
 $("#add-item").on("click", function (event) {
     // event.preventDefault() prevents the form from trying to submit itself.
-    // We're using a form so that the user can hit enter instead of clicking the button if they want
     event.preventDefault();
 
     // This line will grab the text from the input box
     var ingredient = $("#item-input").val().trim();
-    // The giphy from the textbox is then added to our array
+    // The ingredient from the textbox is then added to our array
     console.log(ingredients.indexOf(ingredient));
     console.log()
     if (ingredients.indexOf(ingredient) < 0 && ingredient != "") {
@@ -297,6 +296,7 @@ $("#clear-button").on("click", function (event) {
     $("#new-item").empty();
     $('#dump-item-2').empty()
     $('#dump-item').empty()
+    $('.recipeAdd').empty()
 
 
     ingredients = [];
@@ -321,7 +321,10 @@ $("#dump-item").on("click", ".label-click", function (event) {
     $(".recipeAdd").empty();
     wantedURL = [];
     console.log("button clicked")
-    var newURL = { url: $(this).attr("data-recipe"), label: $(this).attr("data-name") };
+    var newURL = {
+        url: $(this).attr("data-recipe"),
+        label: $(this).attr("data-name")
+    };
     database.ref("URLs").once("value", function (snapshot) {
         for (i = 0; i < snapshot.val().wantedURL.length; i++) {
             wantedURL.push(snapshot.val().wantedURL[i]);
