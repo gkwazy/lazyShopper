@@ -38,7 +38,9 @@ btnSignUp.on("click", function (e) {
     // sign in
     auth.createUserWithEmailAndPassword(email, pass).then(function (e) {
         console.log(e.message);
+
     });
+
     //  $('.modal').modal('hide')
 });
 
@@ -72,15 +74,17 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
             database.ref(`users/${uid}/recipies`).set({
                 // push our urls to this path
                 url: "dank green chili",
+
             });
         });
+
         btnLogout.show();
     } else {
         console.log('not logged in');
         btnLogout.hide();
         $('.modal').modal('show');
     }
-})
+});
 
 var wantedItem;
 var wantedURL = [];
@@ -226,12 +230,12 @@ $("#submit").on("click", function (event) {
             $('#closestStores').append(`<strong>Store Name: </strong>${name}<br><strong>Phone Number: </strong>${phoneNumber}<br><strong>Address: </strong>${streetAddress} ${city}, ${stateProvCode} ${zip}<br><br>`)
 
         }
-        console.log(storeLocator[0].name)
-        console.log(storeLocator[0].phoneNumber)
-        console.log(storeLocator[0].streetAddress)
-        console.log(storeLocator[0].city)
-        console.log(storeLocator[0].stateProvCode)
-        console.log(storeLocator[0].zip)
+        console.log(storeLocator[0].name);
+        console.log(storeLocator[0].phoneNumber);
+        console.log(storeLocator[0].streetAddress);
+        console.log(storeLocator[0].city);
+        console.log(storeLocator[0].stateProvCode);
+        console.log(storeLocator[0].zip);
 
 
     })
