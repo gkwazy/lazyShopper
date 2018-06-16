@@ -3,13 +3,62 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#Jumbo {
-    color: rgb(96, 204, 212);
-    background-color: rgba(20, 20, 20, 0.562);
-    font-family: 'Work Sans', sans-serif;
+div.modal-header {
+     color: whitesmoke;
+    background-color: rgba(100, 228, 237, 0.712);
+    font-family: 'Montserrat', sans-serif;
     text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+}
+
+div.modal-footer {
+    background-color: rgba(100, 228, 237, 0.712);
+}
+
+/* div.form-group{
+    background-color: rgba(0, 255, 255, 0.089);
+} */
+
+div.modal-content {
+    background-color: rgba(0, 255, 255, 0.486);
+
+}
+
+button#btnLogin.btn.btn-primary {
+    border-style: double;
+    padding: 10px;
+    border-radius: 25px 20px 25px 10px;
+    background-color: rgba(49, 107, 110, 0.562);
+    color: whitesmoke;
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    box-shadow: 10px 10px 8px #2020209c;
+}
+
+button#btnSignup.btn.btn-action {
+    border-style: double;
+    padding: 10px;
+    
+    border-radius: 25px 20px 25px 10px;
+    background-color: rgba(49, 107, 110, 0.562);
+    color: whitesmoke;
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    box-shadow: 10px 10px 8px #2020209c;
+}
+
+#Jumbo {
+    color: rgb(44, 241, 241);
+    background-color: rgba(20, 20, 20, 0.562);
+    font-family: 'Syncopate', sans-serif;
+    font-weight: 600;
     border-top: 1px solid black;
     border-bottom: 3px solid black;
+    padding-left: 45px;
+    
+}
+
+#navbarNavDropdown {
+    color: cyan;
+    position: relative;
+    left: 20px;
 }
 
 #holder {
@@ -30,7 +79,7 @@ button.ingredients {
     font-weight: 600;
     border: solid;
     padding: 10px;
-      border-radius: 65px 20px 65px 10px;
+    border-radius: 65px 20px 65px 10px;
     letter-spacing: 0.0725em;
     box-shadow: 0 10px 20px 0 rgba(250, 250, 250, 0.582), 0 16px 50px 0 rgba(96, 204, 212, 0.637);
 }
@@ -57,7 +106,7 @@ button.ingredients {
 
 button#clear-button {
     margin-bottom: 10px;
-      border-radius: 65px 20px 65px 10px;
+    border-radius: 65px 20px 65px 10px;
     box-shadow: 10px 10px 8px #202020b7;
 }
 
@@ -90,8 +139,8 @@ button#clear-button {
 
 input#add-item {
     margin-bottom: 10px;
-      border-radius: 65px 20px 65px 10px;
-      box-shadow: 10px 10px 8px #202020b7;
+    border-radius: 65px 20px 65px 10px;
+    box-shadow: 10px 10px 8px #202020b7;
 }
 
 #add-item {
@@ -184,7 +233,7 @@ input#submit {
     background-color: rgba(133, 108, 77, 0.61);
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
-      border-radius: 65px 20px 65px 10px;
+    border-radius: 65px 20px 65px 10px;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -212,22 +261,20 @@ input#submit {
 }
 
 .label-click {
-    color: rgba(0, 255, 242, 0.829); 
-     text-shadow: 3px 0 rgb(1, 8, 8),
-     0 .5px rgb(0, 3, 3),
-     .5px 0 rgb(1, 5, 5),
-     0 -1px rgb(3, 21, 26);
-         cursor: pointer;
-  
+    color: rgba(0, 255, 242, 0.829);
+    text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
+    cursor: pointer;
 }
+
 .label-click:hover {
- color: #0026ff;
+    color: #0026ff;
 }
 
 #label:active {
     position: relative;
     top: 1px;
 }
+
 #submit-button {
     -moz-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
     -webkit-box-shadow: 0px -3px 13px -9px rgb(122, 82, 34);
@@ -255,14 +302,28 @@ input#submit {
     top: 1px;
 }
 
-
-@media (max-width: 1200px){ 
-    .col-sm-3 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
+button#btnLogout.btn.btn-secondary {
+    box-shadow: 0px -3px 13px -9px rgb(0, 0, 0);
+    background-color: rgba(26, 216, 230, 0.61);
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 16px;
+    text-decoration: none;
+    text-shadow: 2px 1px 1px #010201;
 }
+
+@media (max-width: 1200px) {
+    .col-sm-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 1200px) {
