@@ -8,36 +8,36 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
-var auth = firebase.auth()
+var auth = firebase.auth();
 
-var txtEmail = $('#txtEmail')
-var txtPassword = $('#txtPassword')
-var btnLogin = $('#btnLogin')
-var btnSignUp = $('#btnSignUp')
-var btnLogout = $('#btnLogout')
+var txtEmail = $('#txtEmail');
+var txtPassword = $('#txtPassword');
+var btnLogin = $('#btnLogin');
+var btnSignUp = $('#btnSignUp');
+var btnLogout = $('#btnLogout');
 
 //add login event
 btnLogin.on("click", function (e) {
     e.preventDefault()
     // get user and password
-    var email = txtEmail.val().trim()
-    var pass = txtPassword.val().trim()
+    var email = txtEmail.val().trim();
+    var pass = txtPassword.val().trim();
     // sign in
     auth.signInWithEmailAndPassword(email, pass).then(function (e) {
-        console.log(e.message)
+        console.log(e.message);
     })
     // $('.modal').modal('hide')
 })
 
 // Add signup event
 btnSignUp.on("click", function (e) {
-    e.preventDefault()
+    e.preventDefault();
     // get user and password
-    var email = txtEmail.val().trim()
-    var pass = txtPassword.val().trim()
+    var email = txtEmail.val().trim();
+    var pass = txtPassword.val().trim();
     // sign in
     auth.createUserWithEmailAndPassword(email, pass).then(function (e) {
-        console.log(e.message)
+        console.log(e.message);
     })
     //  $('.modal').modal('hide')
 })
@@ -46,21 +46,21 @@ btnSignUp.on("click", function (e) {
 
 // Logout Btn
 btnLogout.on("click", function (e) {
-    e.preventDefault()
-    firebase.auth().signOut()
-    txtEmail.val('')
-    txtPassword.val('')
-    $('.modal').modal('show')
+    e.preventDefault();
+    firebase.auth().signOut();
+    txtEmail.val('');
+    txtPassword.val('');
+    $('.modal').modal('show');
 
 })
 
 // Add a realtime listener
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
     if (firebaseUser) {
-        console.log(firebaseUser)
-        var userEmail = firebaseUser.email
+        console.log(firebaseUser);
+        var userEmail = firebaseUser.email;
         console.log("  Email: " + firebaseUser.email);
-        var uid = firebaseUser.uid
+        var uid = firebaseUser.uid;
         console.log("  Provider-specific UID: " + firebaseUser.uid);
         database.ref('users/' + uid).set({
             userEmail: userEmail,
@@ -74,13 +74,13 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
                 url: "dank green chili",
             })
         })
-        btnLogout.show()
+        btnLogout.show();
     } else {
-        console.log('not logged in')
-        btnLogout.hide()
-        $('.modal').modal('show')
+        console.log('not logged in');
+        btnLogout.hide();
+        $('.modal').modal('show');
     }
-})
+});
 
 var wantedItem;
 var wantedURL = [];
@@ -225,12 +225,12 @@ $("#submit").on("click", function (event) {
             $('#closestStores').append(`<strong>Store Name: </strong>${name}<br><strong>Phone Number: </strong>${phoneNumber}<br><strong>Address: </strong>${streetAddress} ${city}, ${stateProvCode} ${zip}<br><br>`)
 
         }
-        console.log(storeLocator[0].name)
-        console.log(storeLocator[0].phoneNumber)
-        console.log(storeLocator[0].streetAddress)
-        console.log(storeLocator[0].city)
-        console.log(storeLocator[0].stateProvCode)
-        console.log(storeLocator[0].zip)
+        console.log(storeLocator[0].name);
+        console.log(storeLocator[0].phoneNumber);
+        console.log(storeLocator[0].streetAddress);
+        console.log(storeLocator[0].city);
+        console.log(storeLocator[0].stateProvCode);
+        console.log(storeLocator[0].zip);
 
 
     })
