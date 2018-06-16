@@ -1,13 +1,12 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
     <link rel="icon" href="assets/images/shoppingcart.gif">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style></style>
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -15,39 +14,42 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
 
-
     <title>Smart Mart</title>
-</head>
 
+</head>
 
 <body>
 
-
-
-    <!-- Image and text -->
-    <nav id="Jumbo" class="navbar">
+    <nav class="navbar navbar-expand-lg " id="Jumbo">
         <h1>Smart Mart</h1>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Api List</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://www.edamam.com/">Edamam</a>
+                        <a class="dropdown-item" href="https://www.walmartlabs.com/">walmartlabs</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <button type="button" id="btnLogout" class="btn btn-secondary">Log out</button>
     </nav>
 
     <div id="holder" class="container text-center">
-
         <!-- div for new buttons -->
         <div id="button-style">
             <div id="new-item">
-
             </div>
             <form id="item-form">
                 <label for="search-input">
                     <input id="add-item" type="submit" value="Add Food Item">
                 </label>
                 <input type="text" id="item-input">
-
                 <!-- button triggers new item to be added -->
-
             </form>
             <button id="clear-button">Clear Food Items</button>
-
         </div>
 
         <div id="info" class="row ">
@@ -63,6 +65,7 @@
                     </div>
 
                 </row>
+
                 <div id="title">
                     <h1>Recipes</h1>
 
@@ -76,26 +79,18 @@
                     </div>
                 </row>
 
-
-
                 <br>
-
 
             </div>
             <!-- div for walmart api -->
             <div class="col-sm-3">
-
-                <!-- <div id="title">
-                    <h1>Recipes</h1>
-                </div> -->
-
                 <div class="col-sm-12" id="location">
-
-
                     <div class="form-group" id="storesList">
+
                         <div>
                             <h3>Walmart Store Locator</h3>
                         </div>
+
                         <form>
                             Enter Zip Code
                             <br>
@@ -103,13 +98,14 @@
                             <br>
                             <input id="submit" class="form-group" type="submit" value="Submit">
                         </form>
+
                     </div>
+
                     <div id="closestStores">
                         <ul>
 
                         </ul>
                     </div>
-
 
                 </div>
 
@@ -121,14 +117,14 @@
 
                 </div>
 
-
             </div>
+
             <div class="modal" id="myModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">
-                                <strong>Log In</strong>
+                                <strong>Login</strong>
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -143,14 +139,12 @@
                             <textarea class="form-control" id="txtPassword" placeholder="Password"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="btnLogin" class="btn btn-primary">Log in</button>
+                            <button type="button" id="btnLogin" class="btn btn-primary">Login</button>
                             <button type="button" id="btnSignUp" class="btn btn-action">Sign Up</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-
 
             <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                 crossorigin="anonymous"></script>
@@ -159,10 +153,6 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"></script>
             <script src="assets/javascript/main.js"></script>
-
-
-            <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="main.js"></script> -->
 
         </div>
 </body>
