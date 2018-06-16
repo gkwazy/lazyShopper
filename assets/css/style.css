@@ -4,7 +4,7 @@ body {
 }
 
 div.modal-header {
-     color: whitesmoke;
+    color: whitesmoke;
     background-color: rgba(100, 228, 237, 0.712);
     font-family: 'Montserrat', sans-serif;
     text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
@@ -14,13 +14,8 @@ div.modal-footer {
     background-color: rgba(100, 228, 237, 0.712);
 }
 
-/* div.form-group{
-    background-color: rgba(0, 255, 255, 0.089);
-} */
-
 div.modal-content {
     background-color: rgba(0, 255, 255, 0.486);
-
 }
 
 button#btnLogin.btn.btn-primary {
@@ -36,7 +31,6 @@ button#btnLogin.btn.btn-primary {
 button#btnSignup.btn.btn-action {
     border-style: double;
     padding: 10px;
-    
     border-radius: 25px 20px 25px 10px;
     background-color: rgba(49, 107, 110, 0.562);
     color: whitesmoke;
@@ -52,7 +46,6 @@ button#btnSignup.btn.btn-action {
     border-top: 1px solid black;
     border-bottom: 3px solid black;
     padding-left: 45px;
-    
 }
 
 #navbarNavDropdown {
@@ -93,8 +86,6 @@ button.ingredients {
     text-shadow: 3px 0 rgb(1, 8, 8), 0 .5px rgb(0, 3, 3), .5px 0 rgb(1, 5, 5), 0 -1px rgb(3, 21, 26);
     box-shadow: 10px 10px 8px #2020209c;
 }
-
-
 
 #item-form {
     margin-top: 10px;
@@ -316,6 +307,7 @@ button#btnLogout.btn.btn-secondary {
     text-decoration: none;
     text-shadow: 2px 1px 1px #010201;
 }
+
 #navbarDropdownMenuLink {
     cursor: pointer;
 }
