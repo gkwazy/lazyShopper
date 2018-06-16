@@ -115,8 +115,7 @@ $('#myModal').modal({
 function ajaxCall() {
     $(".listOfRecipes").empty();
     $(".listOfNutrtion").empty();
-    $(".recipeAdd").empty();
-    loadList();
+
 
     var foodAppId = "ad90d902";
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
