@@ -18,7 +18,7 @@ var btnLogout = $('#btnLogout');
 
 //add login event
 btnLogin.on("click", function (e) {
-    e.preventDefault()
+    e.preventDefault();
     // get user and password
     var email = txtEmail.val().trim();
     var pass = txtPassword.val().trim();
@@ -38,9 +38,11 @@ btnSignUp.on("click", function (e) {
     // sign in
     auth.createUserWithEmailAndPassword(email, pass).then(function (e) {
         console.log(e.message);
-    })
+
+    });
+
     //  $('.modal').modal('hide')
-})
+});
 
 
 
@@ -65,15 +67,17 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         database.ref('users/' + uid).set({
             userEmail: userEmail,
             uid: uid
-        })
-        $('.modal').modal('hide')
+        });
+        $('.modal').modal('hide');
         database.ref('users/' + uid).on("value", function (snapshot) {
             console.log(snapshot.val(), 'this should be our current user we need later on.');
             database.ref(`users/${uid}/recipies`).set({
                 // push our urls to this path
                 url: "dank green chili",
-            })
-        })
+
+            });
+        });
+
         btnLogout.show();
     } else {
         console.log('not logged in');
@@ -112,6 +116,7 @@ function ajaxCall() {
     $(".listOfRecipes").empty();
     $(".listOfNutrtion").empty();
     $(".recipeAdd").empty();
+    loadList();
 
     var foodAppId = "ad90d902";
     var foodAppKey = "92d0ccc447ac37767ca7d6859ff6a3ac";
@@ -161,7 +166,7 @@ function ajaxCall() {
 
     //URL for the food nutrtion. 
     var queryURLNutrition = `https://api.edamam.com/api/nutrition-data?app_id=${foodAppId}&app_key=${foodAppKey}&ingr=1%20large%20${wantedItem}`
-    var foodIngd;
+
     //ajax call for the nutrition
     $.ajax({
 
@@ -172,7 +177,7 @@ function ajaxCall() {
         foodIngd = returned.hits;
         console.log(returned);
         var label;
-        var foodListIngd = [];
+
         //appending the wanted information to the html for the user to view
 
         wantedInformation = ["FAT", "CHOCDF", "FIBTG"];
@@ -282,6 +287,7 @@ $("#add-item").on("click", function (event) {
     }
     // calling renderButtons which handles the processing of our array
     renderButtons();
+
     $("#item-input").val("");
 });
 
@@ -333,9 +339,17 @@ $("#dump-item").on("click", ".label-click", function (event) {
 
         console.log(wantedURL + ":wantedURL")
         console.log(newURL + " this stuff")
-        if (wantedURL.indexOf(newURL) < 0) {
+        for (i = 0; i < wantedURL.length; i++) {
+            var match = false;
+            console.log(wantedURL[i].label);
+            console.log(newURL.label);
+            if (wantedURL[i].label === newURL.label) {
+                match = true;
+            }
+        }
+        if (match === false) {
             wantedURL.push(newURL);
-            console.log(wantedURL);
+            console.log("it was pushed!" + match);
         }
         database.ref("URLs").set({
             wantedURL
