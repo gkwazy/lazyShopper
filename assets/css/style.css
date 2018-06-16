@@ -143,6 +143,19 @@ input#add-item {
     background-color: rgba(236, 214, 186, 0.61);
     box-shadow: 10px 10px 8px #2020209c;
 }
+#storesList.recipeadd a {
+        text-align: left;
+        font-weight: 600;
+        padding: 20px;
+
+
+        color: whitesmoke;
+        text-shadow: 1px 0 rgb(1, 8, 8),
+        0 .5px rgb(0, 3, 3),
+        .5px 0 rgb(1, 5, 5),
+        0 -1px rgb(3, 21, 26);
+
+}
 
 #location {
     padding: 20px;
