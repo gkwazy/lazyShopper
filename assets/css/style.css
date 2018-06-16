@@ -94,7 +94,7 @@ button.ingredients {
     box-shadow: 10px 10px 8px #2020209c;
 }
 
-#input-box {}
+
 
 #item-form {
     margin-top: 10px;
@@ -315,6 +315,9 @@ button#btnLogout.btn.btn-secondary {
     padding: 9px 16px;
     text-decoration: none;
     text-shadow: 2px 1px 1px #010201;
+}
+#navbarDropdownMenuLink {
+    cursor: pointer;
 }
 
 @media (max-width: 1200px) {
